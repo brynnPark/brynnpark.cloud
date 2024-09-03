@@ -63,7 +63,9 @@ jobs:
       id: tf-plan
       working-directory: terraform
       run: |
-          terraform plan -no-color
+          echo "Starting Terraform plan..."
+          terraform plan -no-color | tee plan.log
+          echo "Terraform plan completed. Output is stored in plan.log."
       continue-on-error: true
 
     # Apply the pending changes
@@ -71,7 +73,7 @@ jobs:
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       working-directory: terraform
       run: |
-        terraform apply -auto-approve -no-color -input=false
+        terraform apply -auto-approve -input=false
     
     # - name: Sync Bucket
     #   run: |
