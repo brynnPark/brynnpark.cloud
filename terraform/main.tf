@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "my-web-page" {
-  bucket = aws_s3_bucket.my-web-page.id
+  bucket = "${var.static_bucket_name}"
 }
 
 resource "aws_s3_bucket_ownership_controls" "my-web-page" {
