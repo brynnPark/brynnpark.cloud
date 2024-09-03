@@ -1,0 +1,303 @@
+/* General Styles */
+html, body {
+  margin: 0;
+  align-items: center;
+  padding: 0;
+  font-family: sans-serif;
+  background: #fce7ec;
+}
+
+/* Change the background and text color when text is selected */
+::selection {
+  background-color: #fbb2c1; /* Background color when selected */
+  color: #ffffff; /* Text color when selected */
+}
+
+/* Change the selection color for text inside specific elements (e.g., .custom-header) */
+.custom-header::selection {
+  background-color: #ffcc00; /* Example custom background color */
+  color: #000000; /* Example custom text color */
+}
+
+/* Layout Styles */
+.App {
+  max-width: 930px;
+  margin: 0 auto;
+  padding: 120px;
+}
+
+/* Section Separator */
+.section {
+  padding-top: 2em;
+}
+
+/* Header Section */
+.header {
+  font-size: 2em; /* Increase the font size */
+  font-weight: bold; /* Optional: Make the text bold */
+  line-height: 1; /* Adjust line height */
+  width: 100%;
+  margin: 0 0 20px 15px; /* Remove top margin, only bottom margin remains */
+}
+
+/* Main Content Layout */
+.main-content {
+  justify-content: space-between;
+  margin-top: 2em;
+  width: 100%;
+}
+
+/* Profile Section */
+.profile {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  margin-bottom: 2em;
+}
+
+.profile .image {
+  flex: 0 0 40%; /* Increase image width to 40% */
+  max-width: 40%; /* Allow the image to take up more space */
+  margin-right: 50px;
+  margin-left: -5px;
+  border-radius: 30%; /* Adjust the circular shape */
+  overflow: hidden;
+}
+
+.profile .image img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio to prevent cropping */
+  display: block; /* Ensures there are no extra gaps below the image */
+  object-fit: cover; /* Ensure the image covers the container without stretching */
+}
+
+.profile .column {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.profile .title {
+  margin-bottom: 20px; /* Space between title and other profile content */
+}
+
+.profile .details {
+  margin-bottom: 20px; /* Space between profile details and other content */
+}
+
+/* General Code-Like Styling */
+.code-block {
+  font-family: 'Arial', sans-serif; /* Code-like font */
+  padding: 5px 8px; /* Padding around the text */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 0.9em; /* Slightly smaller font size */
+  display: inline-block; /* Ensure each block behaves like a code snippet */
+  margin-right: 5px; /* Small margin between code blocks */
+  font-weight: bold; /* Make bold */
+}
+
+/* Specific Colors for Each Term */
+.cloud-engineering {
+  background-color: #ffebcc; /* Light orange background */
+  color: #d35400; /* Dark orange text */
+}
+
+.solutions-architect {
+  background-color: #c6f0d2; /* Light red background */
+  color: #037b29; /* Dark red text */
+}
+
+.aws {
+  background-color: #d4e6f1; /* Light blue background */
+  color: #2980b9; /* Dark blue text */
+}
+
+.gcp {
+  background-color: #e0f7fa; /* Light cyan background */
+  color: #00796b; /* Dark cyan text */
+}
+
+/* Technical Research */
+.technical-research {
+  width: 100%; /* Adjust width for two-column layout */
+  margin-top: 2em;
+}
+
+.link-to-blog a {
+  text-decoration: none; /* Removes underline from links */
+  color: inherit; /* Inherits the color of the text */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effect */
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 30px;
+  margin-left: -45px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold; /* Make links bold */
+  border: 2px solid #fcb6c4; /* Add border to links */
+}
+
+.link-to-blog a:hover {
+  color: #ffffff; /* Change text color on hover (light pink) */
+  background-color: #fcb6c4; /* Optional: Add background color on hover */
+  border-radius: 30px; /* Optional: Round the corners on hover */
+  padding: 6px 10px; /* Optional: Add padding to make the hover effect more visible */
+}
+
+/* Contact */
+.contact {
+  width: 100%; /* Adjust width for two-column layout */
+  margin-top: 2em;
+}
+
+.link-to-sns {
+  display: inline-block; /* Makes each figure display inline */
+  margin: 0; /* Removes default margin around figure */
+  padding: 0; /* Removes default padding around figure */
+  margin-left: -5px;
+  margin-right: 5px;
+}
+
+.link-to-sns strong {
+  display: inline; /* Ensures the strong tag inside the figure is inline */
+}
+
+.link-to-sns a {
+  text-decoration: none; /* Removes underline from links */
+  color: inherit; /* Inherits the color of the text */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effect */
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold; /* Make links bold */
+  border: 2px solid #fcb6c4; /* Add border to links */
+}
+
+.link-to-sns a:hover {
+  color: #ffffff; /* Change text color on hover (light pink) */
+  background-color: #fcb6c4; /* Optional: Add background color on hover */
+  border-radius: 30px; /* Optional: Round the corners on hover */
+  padding: 5px 11px; /* Optional: Add padding to make the hover effect more visible */
+}
+
+p {
+  display: flex; /* Use flexbox to align items in one line */
+  align-items: center; /* Center align the content vertically */
+  gap: 5px; /* Adds space between the items */
+}
+
+
+/* Projects and Work Experience Columns */
+.projects, .work-experience {
+  width: 48%; /* Each column takes up 48% of the width */
+  margin-bottom: 2em;
+  margin-left: 10px;
+}
+
+.projects {
+  float: left; /* Left-aligned column */
+}
+
+.work-experience {
+  float: right; /* Right-aligned column */
+}
+
+/* Leadership Section */
+.leadership {
+  clear: both; /* Clear floats above */
+  margin-top: 3em;
+  padding-top: 2em;
+  margin-left: 10px;
+  /*border-top: 2px solid #fcb6c4; /* Optional separator */
+}
+
+.leadership h2 {
+  margin-bottom: 20px;
+}
+
+.leadership p {
+  margin-bottom: 10px;
+}
+
+.leadership .activity {
+  margin-bottom: 15px;
+}
+
+.leadership .activity strong {
+  color: #f77791; /* Highlight the activity title with pink */
+}
+
+/* Education Section */
+.education {
+  margin-left: 10px;
+}
+
+.educationitem ul li {
+  margin-bottom: 10px; /* Adjust the value as needed */
+  margin-left: -10px;
+}
+
+/* Certificate Section */
+.certificate {
+  margin-left: 10px;
+}
+
+.certificateitem {
+  margin-bottom: 10px; /* Adjust the value as needed */
+  margin-left: 0;
+}
+
+/* Langage Section */
+.languages {
+  margin-left: 10px;
+}
+
+.languageitem ul li {
+  margin-bottom: 10px; /* Adjust the value as needed */
+  margin-left: -10px;
+}
+
+/* Hover Effects */
+.link-to-page a {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold; /* Make links bold */
+  border: 2px solid #fcb6c4; /* Add border to links */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link-to-page a:hover {
+  background-color: #fcb6c4; /* Light pink color */
+  color: #fff;
+  margin-left: -55px; /* Remove left margin */
+}
+
+/* Projects Styles */
+
+.projects a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold; /* Make links bold */
+  border: 2px solid #fcb6c4; /* Add border to project links */
+  padding: 8px 17px; /* Add padding to fit the border */
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-left: -45px; /* Remove left margin */
+}
+
+.projects a:hover {
+  background-color: #fcb6c4; /* Light pink color */
+  color: #fff;
+}
+
+/* Section Titles */
+h2, h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
