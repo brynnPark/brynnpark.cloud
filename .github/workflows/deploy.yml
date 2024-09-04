@@ -12,6 +12,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+  
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
 
     - name: Cache node modules
       uses: actions/cache@v1
@@ -21,8 +26,8 @@ jobs:
         restore-keys: |
           yarn-deps-${{ hashFiles('my_web_page/yarn.lock') }}
 
-    - name: Install dependencies with npm ci
-      run: npm ci
+    - name: Install dependencies
+      run: npm install
       working-directory: my_web_page
 
     - name: Build app
