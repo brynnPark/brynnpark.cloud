@@ -18,13 +18,6 @@ jobs:
       with:
         node-version: '20'
 
-    # - name: Cache node modules
-    #   uses: actions/cache@v3
-    #   with:
-    #     path: node_modules
-    #     key: ${{ runner.os }}-node-${{ hashFiles('my_web_page/package.json') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-node-${{ hashFiles('my_web_page/package.json') }}
 
     - name: Install dependencies w/ ci
       run: npm ci
