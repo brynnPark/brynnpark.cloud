@@ -18,12 +18,14 @@ resource "aws_s3_object" "upload-build-file" {
     content_type = lookup({
     "html" = "text/html",
     "css"  = "text/css",
-    "js"   = "application/json",
+    "js"   = "application/javascript",
     "png"  = "image/png",
-    "jpg"  = "image/jpeg",
+    "jpg"  = "image/jpg",
     "jpeg" = "image/jpeg",
     "gif"  = "image/gif",
     "svg"  = "image/svg+xml",
-    "ico"  = "image/x-icon"
+    "ico"  = "image/x-icon",
+    "json" = "application/json",
+    "txt" = "text/txt"
   }, split(".", each.value)[length(split(".", each.value)) - 1], "application/octet-stream")
 }
