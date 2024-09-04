@@ -15,6 +15,6 @@ resource "aws_s3_object" "upload-build-file" {
     source          = "../my_web_page/build/${each.value}"
     etag            = filemd5("../my_web_page/build/${each.value}")
 
-    content_type = lookup(local.content_type_map, split(".", "${path.module}/travel-agency-html-template/${each.value}")[1], "text/html")
+    content_type = lookup(local.content_type_map, split(".", "../my_web_page/build/${each.value}")[1], "text/html")
 
 }
