@@ -21,14 +21,15 @@ jobs:
         restore-keys: |
           yarn-deps-${{ hashFiles('my_web_page/yarn.lock') }}
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install dependencies with npm ci
+      run: npm ci
       working-directory: my_web_page
+
+    - name: Run tests
+      run: npm test
 
     - name: Build app
       run: npm run build
-      env:
-          CI: false
       working-directory: my_web_page
 
   deploy:
