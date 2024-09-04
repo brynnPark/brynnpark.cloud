@@ -1,3 +1,10 @@
+locals {
+  content_type_map = {
+   "js" = "application/json"
+   "html" = "text/html"
+   "css"  = "text/css"
+  }
+}
 
 
 resource "aws_s3_object" "upload-build-file" {
@@ -7,5 +14,7 @@ resource "aws_s3_object" "upload-build-file" {
     key             = each.value
     source          = "../my_web_page/build/${each.value}"
     etag            = filemd5("../my_web_page/build/${each.value}")
+
+    content_type = lookup(local.content_type_map, split(".", "${path.module}/travel-agency-html-template/${each.value}")[1], "text/html")
 
 }
