@@ -3,7 +3,7 @@ name: Deploy Static Site to S3
 on:
   push:
     branches:
-      - upload
+      - main
 
 jobs:
   build:
