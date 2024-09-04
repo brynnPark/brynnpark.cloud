@@ -64,7 +64,7 @@ jobs:
       working-directory: terraform
       run: |
           echo "Starting Terraform plan..."
-          terraform plan -no-color | tee plan.log
+          terraform plan | tee plan.log
           echo "Terraform plan completed. Output is stored in plan.log."
       continue-on-error: true
 
