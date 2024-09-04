@@ -24,12 +24,13 @@ jobs:
     - name: Find build directory
       run: find . -type d -name build  # Find where the build directory is created
 
-    - name: List build directory after build
-      run: ls -la my_web_page/build
-
     - name: Build app
       run:  npm run build
       working-directory: my_web_page
+
+    - name: List build directory after build
+      run: ls -la my_web_page/build
+
 
   deploy:
     runs-on: ubuntu-latest
