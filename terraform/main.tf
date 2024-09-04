@@ -49,7 +49,7 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
             "Sid": "PublicReadGetObject",
             "Effect": "Allow",
             "Principal": "*",
-            "Action": "s3:GetObject",
+            "Action": ["s3:GetObject","s3:PutObject"]
             "Resource": "arn:aws:s3:::brynnpark.cloud/*"
         }]
     })
@@ -66,5 +66,4 @@ resource "aws_s3_object" "upload-build-file" {
     key             = each.value
     source          = "../my_web_page/build/${each.value}"
     etag            = filemd5("../my_web_page/build/${each.value}")
-    acl             = "public-read"
 }
