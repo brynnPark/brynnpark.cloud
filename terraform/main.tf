@@ -5,4 +5,6 @@ resource "aws_s3_object" "upload-build-file" {
     key             = each.value
     source          = "../my_web_page/build/${each.value}"
     etag            = filemd5("../my_web_page/build/${each.value}")
+
+    content_type = "text/html"
 }
