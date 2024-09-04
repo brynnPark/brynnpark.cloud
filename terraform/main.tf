@@ -8,3 +8,7 @@ resource "aws_s3_object" "upload-build-file" {
     etag            = filemd5("/Users/pbh7080/Desktop/my-web-page/my_web_page/build/${each.value}")
     acl             = "public-read"
 }
+
+output "files_in_build_directory" {
+  value = fileset("/Users/pbh7080/Desktop/my-web-page/my_web_page/build/", "**/*.*")
+}
