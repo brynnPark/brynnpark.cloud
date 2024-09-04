@@ -3,15 +3,14 @@ resource "aws_s3_bucket" "my-web-page" {
 }
 
 resource "aws_s3_bucket_ownership_controls" "my-web-page" {
-  bucket = aws_s3_bucket.my-web-page.id
+  bucket = "${var.static_bucket_name}"
   rule {
   object_ownership = "BucketOwnerPreferred"
   }
 }
 
 resource "aws_s3_bucket_public_access_block" "my-web-page" {
-  bucket = aws_s3_bucket.my-web-page.id
-
+  bucket = "${var.static_bucket_name}"
   block_public_acls       = false
   block_public_policy     = false
   ignore_public_acls      = false
@@ -24,12 +23,12 @@ resource "aws_s3_bucket_acl" "my-web-page" {
     aws_s3_bucket_public_access_block.my-web-page,
   ]
 
-  bucket = aws_s3_bucket.my-web-page.id
+  bucket = "${var.static_bucket_name}"
   acl    = "public-read"
 }
 
 resource "aws_s3_bucket_website_configuration" "website-config" {
-  bucket = aws_s3_bucket.my-web-page.id
+  bucket = "${var.static_bucket_name}"
 
   index_document {
   suffix = "index.html"
@@ -41,8 +40,7 @@ resource "aws_s3_bucket_website_configuration" "website-config" {
 }
 
 resource "aws_s3_bucket_policy" "bucket-policy" {
-  bucket = aws_s3_bucket.my-web-page.id
-
+  bucket = "${var.static_bucket_name}"
   policy = jsonencode({
     "Version": "2012-10-17",
     "Statement": [{
