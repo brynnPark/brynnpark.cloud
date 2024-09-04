@@ -1,6 +1,6 @@
 
 resource "aws_s3_object" "upload-build-file" {
-    for_each        = fileset("/Users/pbh7080/Desktop/my-web-page/my_web_page/build/", "**/*.*")
+    for_each        = fileset("/Users/pbh7080/Desktop/my-web-page/my_web_page/build/", "**")
 
     bucket          = var.static_bucket_name
     key             = each.value
@@ -10,5 +10,5 @@ resource "aws_s3_object" "upload-build-file" {
 }
 
 output "files_in_build_directory" {
-  value = fileset("/Users/pbh7080/Desktop/my-web-page/my_web_page/build/", "**/*.*")
+  value = fileset("/Users/pbh7080/Desktop/my-web-page/my_web_page/build/", "**")
 }
