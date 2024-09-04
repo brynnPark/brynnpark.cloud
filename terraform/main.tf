@@ -1,3 +1,5 @@
+
+
 resource "aws_s3_object" "upload-build-file" {
     for_each        = fileset("../my_web_page/build/", "**")
 
@@ -6,5 +8,4 @@ resource "aws_s3_object" "upload-build-file" {
     source          = "../my_web_page/build/${each.value}"
     etag            = filemd5("../my_web_page/build/${each.value}")
 
-    content_type = "text/html"
 }
