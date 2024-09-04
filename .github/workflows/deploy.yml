@@ -3,7 +3,7 @@ name: Deploy Static Site to S3
 on:
   push:
     branches:
-      - main
+      - upload
 
 jobs:
   build:
@@ -48,12 +48,12 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.0.0
-    
+
     - name: Terraform init
       id: tf-init
       working-directory: terraform
       run: terraform init
-      
+
     - name: Terraform validate
       working-directory: terraform
       run: terraform validate
@@ -74,11 +74,3 @@ jobs:
       working-directory: terraform
       run: |
         terraform apply -auto-approve -input=false
-    
-    # - name: Sync Bucket
-    #   run: |
-    #     aws s3 sync \
-    #       --region ap-northeast-2 \
-    #       build s3://<버킷 이름> \
-    #       --delete
-    #   working-directory: <작업할 디렉토리>
