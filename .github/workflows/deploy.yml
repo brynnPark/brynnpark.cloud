@@ -12,10 +12,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+    
+    - name: Remove node_modules and clean cache
+      run: rm -rf node_modules && npm cache clean --force
+      working-directory: my_web_page
 
     - name: Install dependencies w/ ci
       run: npm ci
       working-directory: my_web_page
+
+    - name: Find build directory
+      run: find . -type d -name build  # Find where the build directory is created
 
     - name: List build directory after build
       run: ls -la my_web_page/build
