@@ -13,23 +13,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
   
-    # - name: Set up Node.js
-    #   uses: actions/setup-node@v3
-    #   with:
-    #     node-version: '22.3.0'
-    - name: npm-cache-dir
-      run: echo "::set-output name=dir::node_modules"
-
-    - name: Cache node modules
-      uses: actions/cache@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
       with:
-        path: ${{ steps.npm-cache-dir.outputs.dir }}
-        key: ${{ runner.os }}-node-${{ hashFiles('my_web_page/package.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-${{ hashFiles('my_web_page/package.json') }}
+        node-version: '20'
 
-    - name: Install dependencies
-      run: npm install
+    # - name: Cache node modules
+    #   uses: actions/cache@v3
+    #   with:
+    #     path: node_modules
+    #     key: ${{ runner.os }}-node-${{ hashFiles('my_web_page/package.json') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-node-${{ hashFiles('my_web_page/package.json') }}
+
+    - name: Install dependencies w/ ci
+      run: npm ci
       working-directory: my_web_page
 
     - name: Build app
