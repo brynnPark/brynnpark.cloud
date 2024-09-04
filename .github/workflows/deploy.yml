@@ -16,16 +16,13 @@ jobs:
     - name: Install dependencies w/ ci
       run: npm ci
       working-directory: my_web_page
-    
-    - name: pwd
-      run: pwd
+
+    - name: List build directory after build
+      run: ls -la my_web_page/build
 
     - name: Build app
       run:  npm run build
       working-directory: my_web_page
-
-    - name: pwd
-      run: pwd
 
   deploy:
     runs-on: ubuntu-latest
