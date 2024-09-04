@@ -21,10 +21,10 @@ jobs:
     - name: Cache node modules
       uses: actions/cache@v3
       with:
-        path: my_web_page/node_modules
-        key: yarn-deps-${{ hashFiles('my_web_page/yarn.lock') }}
+        path: ${{ steps.npm-cache-dir.outputs.dir }}
+        key: ${{ runner.os }}-node-${{ hashFiles('my_web_page/package.json') }}
         restore-keys: |
-          yarn-deps-${{ hashFiles('my_web_page/yarn.lock') }}
+          ${{ runner.os }}-node-${{ hashFiles('my_web_page/package.json') }}
 
     - name: Install dependencies
       run: npm install
