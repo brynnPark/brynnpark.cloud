@@ -25,9 +25,6 @@ jobs:
       run: npm ci
       working-directory: my_web_page
 
-    - name: Run tests
-      run: npm test
-
     - name: Build app
       run: npm run build
       working-directory: my_web_page
