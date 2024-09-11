@@ -1,6 +1,6 @@
 locals {
   content_type_map = {
-   "js" = "application/json"
+   "js" = "application/javascript"
    "html" = "text/html"
    "css"  = "text/css"
   }
