@@ -76,7 +76,7 @@ resource "aws_acm_certificate" "certificate" {
   // We also want the cert to be valid for the root domain even though we'll be
   // redirecting to the www. domain immediately.
   subject_alternative_names = ["*.${var.root_domain_name}"]
-  depends_on = [ aws_route53_record.validation ]
+  
 }
 
 // We want AWS to host our zone so its nameservers can point to our CloudFront
