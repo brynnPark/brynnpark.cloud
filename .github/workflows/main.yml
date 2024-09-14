@@ -4,38 +4,47 @@ on:
   push:
     branches:
       - main
+      - upload
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Choose environment to apply (deploy or upload)'
+        required: true
+        default: 'deploy'
 
 jobs:
-  terraform-setting:
-    name: Terraform Apply - Depoly
+  terraform-deploy:
+    name: Terraform Apply - Deploy
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'deploy') }}  # Run this job on 'main' branch or manual dispatch for 'deploy'
     steps:
       # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Install Terraform
+      # Set up Terraform
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
 
-      # Initialize Terraform for the "setting" environment
+      # Initialize Terraform for the "deploy" environment
       - name: Terraform Init
-        working-directory: ./terraform/depoly
+        working-directory: terraform/deploy
         run: terraform init
 
-      # Plan Terraform changes for the "setting" environment
+      # Plan Terraform changes for the "deploy" environment
       - name: Terraform Plan
-        working-directory: ./terraform/depoly
+        working-directory: terraform/deploy
         run: terraform plan
 
-      # Apply Terraform changes for the "setting" environment
+      # Apply Terraform changes for the "deploy" environment
       - name: Terraform Apply
-        working-directory: ./terraform/depoly
+        working-directory: terraform/deploy
         run: terraform apply -auto-approve
 
   terraform-upload:
     name: Terraform Apply - Upload
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/upload' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'upload') }}  # Run this job on 'upload' branch or manual dispatch for 'upload'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -45,15 +54,15 @@ jobs:
 
       # Initialize Terraform for the "upload" environment
       - name: Terraform Init
-        working-directory: ./terraform/upload
+        working-directory: terraform/upload
         run: terraform init
 
       # Plan Terraform changes for the "upload" environment
       - name: Terraform Plan
-        working-directory: ./terraform/upload
+        working-directory: terraform/upload
         run: terraform plan
 
       # Apply Terraform changes for the "upload" environment
       - name: Terraform Apply
-        working-directory: ./terraform/upload
+        working-directory: terraform/upload
         run: terraform apply -auto-approve
