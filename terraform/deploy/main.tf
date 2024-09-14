@@ -63,6 +63,7 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
 }
 
 provider "aws" {
+  alias  = "us_east_1"
   region = "us-east-1"
 }
 
