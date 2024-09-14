@@ -40,7 +40,6 @@ jobs:
       - name: List build directory after build
         run: ls -la my_web_page/build
 
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -55,17 +54,17 @@ jobs:
 
       - name: Terraform init
         id: tf-init
-        working-directory: terraform
+        working-directory: terraform/deploy
         run: terraform init
 
       - name: Terraform validate
-        working-directory: terraform
+        working-directory: terraform/deploy
         run: terraform validate
 
         # An exit code of 0 indicated no changes, 1 a terraform failure, 2 there are pending changes.
       - name: Terraform plan
         id: tf-plan
-        working-directory: terraform
+        working-directory: terraform/deploy
         run: |
                 echo "Starting Terraform plan..."
                 terraform plan -no-color | tee plan.log
@@ -75,7 +74,7 @@ jobs:
         # Apply the pending changes
       - name: Terraform apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        working-directory: terraform
+        working-directory: terraform/deploy
         run: |
             terraform apply -auto-approve -input=false
 
