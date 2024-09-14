@@ -62,7 +62,6 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
   ]
 }
 
-
 provider "aws" {
   alias  = "us_east_1"
   region = "us-east-1"
@@ -77,26 +76,13 @@ resource "aws_acm_certificate" "certificate" {
   // We also want the cert to be valid for the root domain even though we'll be
   // redirecting to the www. domain immediately.
   subject_alternative_names = ["*.${var.root_domain_name}"]
-
+  depends_on = [ aws_route53_record.validation ]
 }
 
 // We want AWS to host our zone so its nameservers can point to our CloudFront
 // distribution.
 resource "aws_route53_zone" "zone" {
   name = "${var.root_domain_name}"
-}
-
-// This Route53 record will point at our CloudFront distribution.
-resource "aws_route53_record" "www" {
-  zone_id = "${aws_route53_zone.zone.zone_id}"
-  name    = "${var.www_domain_name}"
-  type    = "A"
-
-    alias {
-    name                   = aws_cloudfront_distribution.www_distribution.domain_name
-    zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
-    evaluate_target_health = false
-  }
 }
 
 resource "aws_route53_record" "validation" {
@@ -111,6 +97,7 @@ resource "aws_route53_record" "validation" {
   records    = [each.value.record]
   ttl        = 60
   zone_id  = aws_route53_zone.zone.zone_id
+  depends_on = [ aws_route53_zone.zone ]
 }
 
 resource "aws_cloudfront_distribution" "www_distribution" {
@@ -174,3 +161,16 @@ resource "aws_cloudfront_distribution" "www_distribution" {
   depends_on = [aws_acm_certificate.certificate ]
 }
 
+// This Route53 record will point at our CloudFront distribution.
+resource "aws_route53_record" "www" {
+  zone_id = "${aws_route53_zone.zone.zone_id}"
+  name    = "${var.www_domain_name}"
+  type    = "A"
+
+    alias {
+    name                   = aws_cloudfront_distribution.www_distribution.domain_name
+    zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
+    evaluate_target_health = false
+  }
+  depends_on = [ aws_cloudfront_distribution.www_distribution ]
+}
