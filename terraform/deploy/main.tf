@@ -76,7 +76,10 @@ resource "aws_acm_certificate" "certificate" {
   // We also want the cert to be valid for the root domain even though we'll be
   // redirecting to the www. domain immediately.
   subject_alternative_names = ["*.${var.root_domain_name}"]
-  
+
+    lifecycle {
+    create_before_destroy = true
+  }
 }
 
 // We want AWS to host our zone so its nameservers can point to our CloudFront
@@ -86,6 +89,7 @@ resource "aws_route53_zone" "zone" {
 }
 
 resource "aws_route53_record" "validation" {
+  allow_overwrite = true
   for_each   = { for dvo in aws_acm_certificate.certificate.domain_validation_options : dvo.domain_name => {
     name     = dvo.resource_record_name
     type     = dvo.resource_record_type
@@ -99,9 +103,6 @@ resource "aws_route53_record" "validation" {
   zone_id  = aws_route53_zone.zone.zone_id
   depends_on = [ aws_route53_zone.zone ]
 
-    lifecycle {
-    ignore_changes = all
-  }
 }
 
 resource "aws_cloudfront_distribution" "www_distribution" {
