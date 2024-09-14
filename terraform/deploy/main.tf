@@ -65,15 +65,6 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
 
 
 
-# Route 53 DNS validation records
-resource "aws_route53_record" "validation" {
-  zone_id = "${aws_route53_zone.zone.zone_id}"
-  name    = "${var.www_domain_name}"
-  type    = "CNAME"
-  ttl     = 60
-  records = ["${var.www_domain_name}"]
-}
-
 provider "aws" {
   alias  = "us_east_1"
   region = "us-east-1"
@@ -99,6 +90,14 @@ resource "aws_route53_zone" "zone" {
   name = "${var.root_domain_name}"
 }
 
+# Route 53 DNS validation records
+resource "aws_route53_record" "validation" {
+  zone_id = "${aws_route53_zone.zone.zone_id}"
+  name    = "${var.www_domain_name}"
+  type    = "CNAME"
+  ttl     = 60
+  records = ["${var.www_domain_name}"]
+}
 
 # Wait for the ACM certificate to be validated
 # resource "aws_acm_certificate_validation" "certificate_validation" {
