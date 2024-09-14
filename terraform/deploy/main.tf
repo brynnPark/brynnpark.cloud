@@ -62,48 +62,22 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
   ]
 }
 
+
+
+
+# Route 53 DNS validation records
+resource "aws_route53_record" "validation" {
+  zone_id = "${aws_route53_zone.zone.zone_id}"
+  name    = "${var.www_domain_name}"
+  type    = "CNAME"
+  ttl     = 60
+  records = ["${var.www_domain_name}"]
+}
+
 provider "aws" {
   alias  = "us_east_1"
   region = "us-east-1"
 }
-
-// We want AWS to host our zone so its nameservers can point to our CloudFront
-// distribution.
-resource "aws_route53_zone" "zone" {
-  name = "${var.root_domain_name}"
-}
-
-// This Route53 record will point at our CloudFront distribution.
-resource "aws_route53_record" "www" {
-  zone_id = "${aws_route53_zone.zone.zone_id}"
-  name    = "${var.www_domain_name}"
-  type    = "A"
-
-    alias {
-    name                   = aws_cloudfront_distribution.www_distribution.domain_name
-    zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
-    evaluate_target_health = false
-  }
-}
-
-# # Route 53 DNS validation records
-# resource "aws_route53_record" "validation" {
-#   for_each = {
-#     for dvo in aws_acm_certificate.certificate.domain_validation_options : dvo.domain_name => {
-#       name   = dvo.resource_record_name
-#       type   = dvo.resource_record_type
-#       record = dvo.resource_record_value
-#     }
-#   }
-
-#   zone_id = "${aws_route53_zone.zone.zone_id}"
-#   name    = each.value.name
-#   type    = each.value.type
-#   ttl     = 60
-#   records = [each.value.record]
-# }
-
-
 // Use the AWS Certificate Manager to create an SSL cert for our domain.
 // This resource won't be created until you receive the email verifying you
 // own the domain and you click on the confirmation link.
@@ -118,6 +92,20 @@ resource "aws_acm_certificate" "certificate" {
   subject_alternative_names = ["*.${var.root_domain_name}"]
 
 }
+
+// We want AWS to host our zone so its nameservers can point to our CloudFront
+// distribution.
+resource "aws_route53_zone" "zone" {
+  name = "${var.root_domain_name}"
+}
+
+
+# Wait for the ACM certificate to be validated
+# resource "aws_acm_certificate_validation" "certificate_validation" {
+#   provider                = aws.us_east_1
+#   certificate_arn         = aws_acm_certificate.certificate.arn
+#   validation_record_fqdns = [for record in aws_route53_record.validation : record.fqdn]
+# }
 
 resource "aws_cloudfront_distribution" "www_distribution" {
   // origin is where CloudFront gets its content from.
@@ -178,4 +166,17 @@ resource "aws_cloudfront_distribution" "www_distribution" {
     ssl_support_method  = "sni-only"
   }
   depends_on = [aws_acm_certificate.certificate ]
+}
+
+// This Route53 record will point at our CloudFront distribution.
+resource "aws_route53_record" "www" {
+  zone_id = "${aws_route53_zone.zone.zone_id}"
+  name    = "${var.www_domain_name}"
+  type    = "A"
+
+    alias {
+    name                   = aws_cloudfront_distribution.www_distribution.domain_name
+    zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
+    evaluate_target_health = false
+  }
 }
