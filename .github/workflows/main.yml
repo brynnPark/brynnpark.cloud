@@ -17,29 +17,67 @@ jobs:
     name: Terraform Apply - Deploy
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/main' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'deploy') }}  # Run this job on 'main' branch or manual dispatch for 'deploy'
+    
     steps:
-      # Checkout the repository
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        
+      - name: Remove node_modules and clean cache
+        run: rm -rf node_modules && npm cache clean --force
+        working-directory: my_web_page
 
-      # Set up Terraform
-      - name: Set up Terraform
+      - name: Install dependencies w/ ci
+        run: npm ci
+        working-directory: my_web_page
+
+      - name: Find build directory
+        run: find . -type d -name build  # Find where the build directory is created
+
+      - name: Build app
+        run:  npm run build
+        working-directory: my_web_page
+
+      - name: List build directory after build
+        run: ls -la my_web_page/build
+
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
+        with:
+            terraform_version: 1.0.0
 
-      # Initialize Terraform for the "deploy" environment
-      - name: Terraform Init
-        working-directory: terraform/deploy
+      - name: Terraform init
+        id: tf-init
+        working-directory: terraform
         run: terraform init
 
-      # Plan Terraform changes for the "deploy" environment
-      - name: Terraform Plan
-        working-directory: terraform/deploy
-        run: terraform plan
+      - name: Terraform validate
+        working-directory: terraform
+        run: terraform validate
 
-      # Apply Terraform changes for the "deploy" environment
-      - name: Terraform Apply
-        working-directory: terraform/deploy
-        run: terraform apply -auto-approve
+        # An exit code of 0 indicated no changes, 1 a terraform failure, 2 there are pending changes.
+      - name: Terraform plan
+        id: tf-plan
+        working-directory: terraform
+        run: |
+                echo "Starting Terraform plan..."
+                terraform plan -no-color | tee plan.log
+                echo "Terraform plan completed. Output is stored in plan.log."
+        continue-on-error: true
+
+        # Apply the pending changes
+      - name: Terraform apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        working-directory: terraform
+        run: |
+            terraform apply -auto-approve -input=false
 
   terraform-upload:
     name: Terraform Apply - Upload
