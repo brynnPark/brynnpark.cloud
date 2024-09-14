@@ -36,7 +36,7 @@ resource "aws_s3_bucket" "my-web-page" {
 resource "null_resource" "delete_all_objects" {
   # Use the local-exec provisioner to run the AWS CLI command
   provisioner "local-exec" {
-    command = "aws s3 rm s3://${aws_s3_bucket.example_bucket.bucket} --recursive"
+    command = "aws s3 rm s3://${var.static_bucket_name} --recursive"
   }
 
   # Add a trigger to ensure this command runs when you apply changes
