@@ -62,10 +62,7 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
   ]
 }
 
-provider "aws" {
-  alias  = "us_east_1"
-  region = "us-east-1"
-}
+
 
 // We want AWS to host our zone so its nameservers can point to our CloudFront
 // distribution.
@@ -103,7 +100,10 @@ resource "aws_route53_record" "www" {
 #   records = [each.value.record]
 # }
 
-
+provider "aws" {
+  alias  = "us_east_1"
+  region = "us-east-1"
+}
 // Use the AWS Certificate Manager to create an SSL cert for our domain.
 // This resource won't be created until you receive the email verifying you
 // own the domain and you click on the confirmation link.
