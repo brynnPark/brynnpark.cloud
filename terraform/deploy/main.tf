@@ -52,7 +52,7 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
             "Sid": "PublicReadGetObject",
             "Effect": "Allow",
             "Principal": "*",
-            "Action": ["s3:GetObject","s3:PutObject"]
+            "Action": ["s3:GetObject","s3:PutObject", "S3:DeleteObject"]
             "Resource": "arn:aws:s3:::brynnpark.cloud/*"
         }]
     })
@@ -67,9 +67,7 @@ provider "aws" {
   alias  = "us_east_1"
   region = "us-east-1"
 }
-// Use the AWS Certificate Manager to create an SSL cert for our domain.
-// This resource won't be created until you receive the email verifying you
-// own the domain and you click on the confirmation link.
+
 resource "aws_acm_certificate" "certificate" {
   // We want a wildcard cert so we can host subdomains later.
   provider          = aws.us_east_1
@@ -88,14 +86,6 @@ resource "aws_route53_zone" "zone" {
   name = "${var.root_domain_name}"
 }
 
-# # Route 53 DNS validation records
-# resource "aws_route53_record" "validation" {
-#   zone_id = "${aws_route53_zone.zone.zone_id}"
-#   name    = "${var.www_domain_name}"
-#   type    = "CNAME"
-#   ttl     = 60
-#   records = ["${aws_acm_certificate.certificate.arn}"]
-# }
 resource "aws_route53_record" "cert_validation" {
   for_each   = { for dvo in aws_acm_certificate.certificate.domain_validation_options : dvo.domain_name => {
     name     = dvo.resource_record_name
@@ -109,12 +99,6 @@ resource "aws_route53_record" "cert_validation" {
   ttl        = 60
   zone_id  = aws_route53_zone.zone.zone_id
 }
-# Wait for the ACM certificate to be validated
-# resource "aws_acm_certificate_validation" "certificate_validation" {
-#   provider                = aws.us_east_1
-#   certificate_arn         = aws_acm_certificate.certificate.arn
-#   validation_record_fqdns = [for record in aws_route53_record.validation : record.fqdn]
-# }
 
 resource "aws_cloudfront_distribution" "www_distribution" {
   // origin is where CloudFront gets its content from.
