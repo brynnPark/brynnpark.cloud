@@ -67,6 +67,13 @@ provider "aws" {
   region = "us-east-1"
 }
 
+# // We want AWS to host our zone so its nameservers can point to our CloudFront
+# // distribution.
+# resource "aws_route53_zone" "zone" {
+#   name = "${var.root_domain_name}"
+# }
+
+
 resource "aws_acm_certificate" "certificate" {
   // We want a wildcard cert so we can host subdomains later.
   provider          = aws.us_east_1
@@ -82,11 +89,6 @@ resource "aws_acm_certificate" "certificate" {
   }
 }
 
-// We want AWS to host our zone so its nameservers can point to our CloudFront
-// distribution.
-resource "aws_route53_zone" "zone" {
-  name = "${var.root_domain_name}"
-}
 
 resource "aws_route53_record" "validation" {
   allow_overwrite = true
@@ -177,5 +179,4 @@ resource "aws_route53_record" "www" {
     zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
     evaluate_target_health = false
   }
-  depends_on = [ aws_cloudfront_distribution.www_distribution ]
 }
