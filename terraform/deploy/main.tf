@@ -1,4 +1,4 @@
-\provider "aws" {
+provider "aws" {
   region = "ap-northeast-2"
 }
 
@@ -164,7 +164,7 @@ resource "aws_cloudfront_distribution" "www_distribution" {
 
   // Here we're ensuring we can hit this distribution using www.runatlantis.io
   // rather than the domain name CloudFront gives us.
-  aliases = [var.domain_name, "${var.www_domain_name}"]
+  aliases = [var.root_domain_name, "${var.www_domain_name}"]
 
   restrictions {
     geo_restriction {
