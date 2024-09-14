@@ -7,7 +7,7 @@ variable "static_bucket_name" {
 
 // Create a variable for our domain name because we'll be using it a lot.
 variable "www_domain_name" {
-  default = "www.brynnpark.cloud"
+  default = "*.brynnpark.cloud"
 }
 
 variable "root_domain_name" {
