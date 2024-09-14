@@ -109,11 +109,11 @@ resource "aws_route53_zone" "zone" {
 
 
 # Wait for the ACM certificate to be validated
-resource "aws_acm_certificate_validation" "certificate_validation" {
-  provider                = aws.us_east_1
-  certificate_arn         = aws_acm_certificate.certificate.arn
-  validation_record_fqdns = [for record in aws_route53_record.validation : record.fqdn]
-}
+# resource "aws_acm_certificate_validation" "certificate_validation" {
+#   provider                = aws.us_east_1
+#   certificate_arn         = aws_acm_certificate.certificate.arn
+#   validation_record_fqdns = [for record in aws_route53_record.validation : record.fqdn]
+# }
 
 resource "aws_cloudfront_distribution" "www_distribution" {
   // origin is where CloudFront gets its content from.
@@ -187,4 +187,5 @@ resource "aws_route53_record" "www" {
     zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
     evaluate_target_health = false
   }
+  depends_on = [ aws_cloudfront_distribution.www_distribution ]
 }
