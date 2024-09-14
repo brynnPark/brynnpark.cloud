@@ -73,6 +73,7 @@ provider "aws" {
 // own the domain and you click on the confirmation link.
 resource "aws_acm_certificate" "certificate" {
   // We want a wildcard cert so we can host subdomains later.
+  provider          = aws.us_east_1
   domain_name       = "*.${var.root_domain_name}"
   validation_method = "DNS"
 
@@ -139,6 +140,8 @@ resource "aws_cloudfront_distribution" "www_distribution" {
     acm_certificate_arn = "${aws_acm_certificate.certificate.arn}"
     ssl_support_method  = "sni-only"
   }
+
+  depends_on = [aws_acm_certificate.certificate]
 }
 
 
