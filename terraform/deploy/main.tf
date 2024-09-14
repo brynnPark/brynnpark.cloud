@@ -98,6 +98,10 @@ resource "aws_route53_record" "validation" {
   ttl        = 60
   zone_id  = aws_route53_zone.zone.zone_id
   depends_on = [ aws_route53_zone.zone ]
+
+    lifecycle {
+    ignore_changes = all
+  }
 }
 
 resource "aws_cloudfront_distribution" "www_distribution" {
