@@ -7,6 +7,7 @@ resource "aws_s3_bucket_ownership_controls" "my-web-page" {
   rule {
   object_ownership = "BucketOwnerPreferred"
   }
+  depends_on = [aws_s3_bucket.my-web-page]
 }
  
 resource "aws_s3_bucket_public_access_block" "my-web-page" {
@@ -35,7 +36,7 @@ resource "aws_s3_bucket_website_configuration" "website-config" {
   }
 
   error_document {
-  key = "error.html"
+  key = "index.html"
   }
 }
 
@@ -63,7 +64,7 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
 resource "aws_acm_certificate" "certificate" {
   // We want a wildcard cert so we can host subdomains later.
   domain_name       = "*.${var.root_domain_name}"
-  validation_method = "EMAIL"
+  validation_method = "DNS"
 
   // We also want the cert to be valid for the root domain even though we'll be
   // redirecting to the www. domain immediately.
