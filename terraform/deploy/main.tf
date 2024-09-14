@@ -73,35 +73,35 @@ resource "aws_route53_zone" "zone" {
   name = "${var.root_domain_name}"
 }
 
-# // This Route53 record will point at our CloudFront distribution.
-# resource "aws_route53_record" "www" {
-#   zone_id = "${aws_route53_zone.zone.zone_id}"
-#   name    = "${var.www_domain_name}"
-#   type    = "A"
-
-#     alias {
-#     name                   = aws_cloudfront_distribution.www_distribution.domain_name
-#     zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
-#     evaluate_target_health = false
-#   }
-# }
-
-# Route 53 DNS validation records
-resource "aws_route53_record" "validation" {
-  for_each = {
-    for dvo in aws_acm_certificate.certificate.domain_validation_options : dvo.domain_name => {
-      name   = dvo.resource_record_name
-      type   = dvo.resource_record_type
-      record = dvo.resource_record_value
-    }
-  }
-
+// This Route53 record will point at our CloudFront distribution.
+resource "aws_route53_record" "www" {
   zone_id = "${aws_route53_zone.zone.zone_id}"
-  name    = each.value.name
-  type    = each.value.type
-  ttl     = 60
-  records = [each.value.record]
+  name    = "${var.www_domain_name}"
+  type    = "A"
+
+    alias {
+    name                   = aws_cloudfront_distribution.www_distribution.domain_name
+    zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
+    evaluate_target_health = false
+  }
 }
+
+# # Route 53 DNS validation records
+# resource "aws_route53_record" "validation" {
+#   for_each = {
+#     for dvo in aws_acm_certificate.certificate.domain_validation_options : dvo.domain_name => {
+#       name   = dvo.resource_record_name
+#       type   = dvo.resource_record_type
+#       record = dvo.resource_record_value
+#     }
+#   }
+
+#   zone_id = "${aws_route53_zone.zone.zone_id}"
+#   name    = each.value.name
+#   type    = each.value.type
+#   ttl     = 60
+#   records = [each.value.record]
+# }
 
 
 // Use the AWS Certificate Manager to create an SSL cert for our domain.
@@ -177,5 +177,5 @@ resource "aws_cloudfront_distribution" "www_distribution" {
     acm_certificate_arn = "${aws_acm_certificate.certificate.arn}"
     ssl_support_method  = "sni-only"
   }
-
+  depends_on = [aws_acm_certificate.certificate ]
 }
