@@ -67,11 +67,11 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# // We want AWS to host our zone so its nameservers can point to our CloudFront
-# // distribution.
-# resource "aws_route53_zone" "zone" {
-#   name = "${var.root_domain_name}"
-# }
+// We want AWS to host our zone so its nameservers can point to our CloudFront
+// distribution.
+resource "aws_route53_zone" "zone" {
+  name = "${var.root_domain_name}"
+}
 
 
 resource "aws_acm_certificate" "certificate" {
@@ -102,9 +102,7 @@ resource "aws_route53_record" "validation" {
   type       = each.value.type
   records    = [each.value.record]
   ttl        = 60
-  zone_id  = aws_route53_zone.zone.zone_id
-  depends_on = [ aws_route53_zone.zone ]
-
+  zone_id  = aws_route53_zone.zone.id
 }
 
 resource "aws_cloudfront_distribution" "www_distribution" {
@@ -170,7 +168,7 @@ resource "aws_cloudfront_distribution" "www_distribution" {
 
 // This Route53 record will point at our CloudFront distribution.
 resource "aws_route53_record" "www" {
-  zone_id = "${aws_route53_zone.zone.zone_id}"
+  zone_id = "${aws_route53_zone.zone.id}"
   name    = "${var.www_domain_name}"
   type    = "A"
 

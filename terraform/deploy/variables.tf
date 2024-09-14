@@ -14,3 +14,6 @@ variable "root_domain_name" {
   default = "brynnpark.cloud"
 }
 
+variable "domainName" {
+  type = string
+}
