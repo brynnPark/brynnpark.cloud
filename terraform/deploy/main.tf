@@ -79,6 +79,7 @@ resource "aws_acm_certificate" "certificate" {
   // We also want the cert to be valid for the root domain even though we'll be
   // redirecting to the www. domain immediately.
   subject_alternative_names = ["${var.root_domain_name}"]
+
 }
 
 // We want AWS to host our zone so its nameservers can point to our CloudFront
@@ -87,18 +88,18 @@ resource "aws_route53_zone" "zone" {
   name = "${var.root_domain_name}"
 }
 
-// This Route53 record will point at our CloudFront distribution.
-resource "aws_route53_record" "www" {
-  zone_id = "${aws_route53_zone.zone.zone_id}"
-  name    = "${var.www_domain_name}"
-  type    = "A"
+# // This Route53 record will point at our CloudFront distribution.
+# resource "aws_route53_record" "www" {
+#   zone_id = "${aws_route53_zone.zone.zone_id}"
+#   name    = "${var.www_domain_name}"
+#   type    = "A"
 
-    alias {
-    name                   = aws_cloudfront_distribution.www_distribution.domain_name
-    zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
-    evaluate_target_health = false
-  }
-}
+#     alias {
+#     name                   = aws_cloudfront_distribution.www_distribution.domain_name
+#     zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
+#     evaluate_target_health = false
+#   }
+# }
 
 
 # Route 53 DNS validation records
@@ -111,7 +112,7 @@ resource "aws_route53_record" "validation" {
     }
   }
 
-  zone_id = "${aws_route53_record.www.zone_id}"
+  zone_id = "${aws_route53_zone.zone.zone_id}"
   name    = each.value.name
   type    = each.value.type
   ttl     = 60
