@@ -85,7 +85,7 @@ resource "aws_cloudfront_distribution" "www_distribution" {
     }
 
     // Here we're using our S3 bucket's URL!
-    domain_name = "${aws_s3_bucket.www.website_endpoint}"
+    domain_name = "${aws_s3_bucket.my-web-page.website_endpoint}"
     // This can be any name to identify this origin.
     origin_id   = "${var.www_domain_name}"
   }
@@ -142,4 +142,10 @@ resource "aws_route53_record" "www" {
   zone_id = "${aws_route53_zone.zone.zone_id}"
   name    = "${var.www_domain_name}"
   type    = "A"
+
+    alias {
+    name                   = aws_cloudfront_distribution.www_distribution.domain_name
+    zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
+    evaluate_target_health = false
+  }
 }
