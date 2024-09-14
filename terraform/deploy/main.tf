@@ -65,22 +65,14 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
 
 
 
-# # Route 53 DNS validation records
-# resource "aws_route53_record" "validation" {
-#   for_each = {
-#     for dvo in aws_acm_certificate.certificate.domain_validation_options : dvo.domain_name => {
-#       name   = dvo.resource_record_name
-#       type   = dvo.resource_record_type
-#       record = dvo.resource_record_value
-#     }
-#   }
-
-#   zone_id = "${aws_route53_zone.zone.zone_id}"
-#   name    = each.value.name
-#   type    = each.value.type
-#   ttl     = 60
-#   records = [each.value.record]
-# }
+# Route 53 DNS validation records
+resource "aws_route53_record" "validation" {
+  zone_id = "${aws_route53_zone.zone.zone_id}"
+  name    = "${var.www_domain_name}"
+  type    = "CNAME"
+  ttl     = 60
+  records = ["${var.www_domain_name}"]
+}
 
 provider "aws" {
   alias  = "us_east_1"
@@ -187,5 +179,4 @@ resource "aws_route53_record" "www" {
     zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
     evaluate_target_health = false
   }
-  depends_on = [ aws_cloudfront_distribution.www_distribution ]
 }
