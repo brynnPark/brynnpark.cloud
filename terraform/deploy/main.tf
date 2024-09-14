@@ -120,7 +120,7 @@ resource "aws_cloudfront_distribution" "www_distribution" {
     }
 
     // Here we're using our S3 bucket's URL!
-    domain_name = "${aws_s3_bucket.my-web-page.website_endpoint}"
+    domain_name = "brynnpark.cloud.${my-web-page.website_endpoint}"
     // This can be any name to identify this origin.
     origin_id   = "${var.www_domain_name}"
   }
