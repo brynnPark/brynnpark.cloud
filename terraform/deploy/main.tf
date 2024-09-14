@@ -1,3 +1,7 @@
+\provider "aws" {
+  region = "ap-northeast-2"
+}
+
 resource "aws_s3_bucket" "my-web-page" {
   bucket = "${var.static_bucket_name}"
 }
@@ -7,6 +11,7 @@ resource "aws_s3_bucket_ownership_controls" "my-web-page" {
   rule {
   object_ownership = "BucketOwnerPreferred"
   }
+  depends_on = [aws_s3_bucket.my-web-page]
 }
  
 resource "aws_s3_bucket_public_access_block" "my-web-page" {
@@ -35,7 +40,7 @@ resource "aws_s3_bucket_website_configuration" "website-config" {
   }
 
   error_document {
-  key = "error.html"
+  key = "index.html"
   }
 }
 
@@ -57,17 +62,61 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
   ]
 }
 
+provider "aws" {
+  alias  = "us_east_1"
+  region = "us-east-1"
+}
+
+// We want AWS to host our zone so its nameservers can point to our CloudFront
+// distribution.
+resource "aws_route53_zone" "zone" {
+  name = "${var.root_domain_name}"
+}
+
+# // This Route53 record will point at our CloudFront distribution.
+# resource "aws_route53_record" "www" {
+#   zone_id = "${aws_route53_zone.zone.zone_id}"
+#   name    = "${var.www_domain_name}"
+#   type    = "A"
+
+#     alias {
+#     name                   = aws_cloudfront_distribution.www_distribution.domain_name
+#     zone_id                = aws_cloudfront_distribution.www_distribution.hosted_zone_id
+#     evaluate_target_health = false
+#   }
+# }
+
+# Route 53 DNS validation records
+resource "aws_route53_record" "validation" {
+  for_each = {
+    for dvo in aws_acm_certificate.certificate.domain_validation_options : dvo.domain_name => {
+      name   = dvo.resource_record_name
+      type   = dvo.resource_record_type
+      record = dvo.resource_record_value
+    }
+  }
+
+  zone_id = "${aws_route53_zone.zone.zone_id}"
+  name    = each.value.name
+  type    = each.value.type
+  ttl     = 60
+  records = [each.value.record]
+}
+
+
 // Use the AWS Certificate Manager to create an SSL cert for our domain.
 // This resource won't be created until you receive the email verifying you
 // own the domain and you click on the confirmation link.
 resource "aws_acm_certificate" "certificate" {
   // We want a wildcard cert so we can host subdomains later.
-  domain_name       = "*.${var.root_domain_name}"
-  validation_method = "EMAIL"
+  provider          = aws.us_east_1
+  domain_name       = "${var.root_domain_name}"
+  validation_method = "DNS"
 
   // We also want the cert to be valid for the root domain even though we'll be
   // redirecting to the www. domain immediately.
-  subject_alternative_names = ["${var.root_domain_name}"]
+  subject_alternative_names = ["*.${var.root_domain_name}"]
+
 }
 
 resource "aws_cloudfront_distribution" "www_distribution" {
@@ -85,7 +134,7 @@ resource "aws_cloudfront_distribution" "www_distribution" {
     }
 
     // Here we're using our S3 bucket's URL!
-    domain_name = "${aws_s3_bucket.www.website_endpoint}"
+    domain_name = "${aws_s3_bucket.my-web-page.website_endpoint}"
     // This can be any name to identify this origin.
     origin_id   = "${var.www_domain_name}"
   }
@@ -128,18 +177,5 @@ resource "aws_cloudfront_distribution" "www_distribution" {
     acm_certificate_arn = "${aws_acm_certificate.certificate.arn}"
     ssl_support_method  = "sni-only"
   }
-}
 
-
-// We want AWS to host our zone so its nameservers can point to our CloudFront
-// distribution.
-resource "aws_route53_zone" "zone" {
-  name = "${var.root_domain_name}"
-}
-
-// This Route53 record will point at our CloudFront distribution.
-resource "aws_route53_record" "www" {
-  zone_id = "${aws_route53_zone.zone.zone_id}"
-  name    = "${var.www_domain_name}"
-  type    = "A"
 }
