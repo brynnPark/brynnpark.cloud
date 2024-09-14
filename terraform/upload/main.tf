@@ -7,9 +7,9 @@
 # }
 
 # S3 bucket where the object resides
-resource "aws_s3_bucket" "my-web-page" {
-  bucket = "${var.static_bucket_name}"
-}
+# resource "aws_s3_bucket" "my-web-page" {
+#   bucket = "${var.static_bucket_name}"
+# }
 
 # # Object to delete
 # resource "aws_s3_bucket_object" "example_object" {
