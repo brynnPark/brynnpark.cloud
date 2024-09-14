@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "ap-northeast-2"
+}
+
 resource "aws_s3_bucket" "my-web-page" {
   bucket = "${var.static_bucket_name}"
 }
@@ -57,6 +61,11 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
   aws_s3_bucket_public_access_block.my-web-page
   ]
 }
+
+provider "aws" {
+  region = "us-east-1"
+}
+
 
 // Use the AWS Certificate Manager to create an SSL cert for our domain.
 // This resource won't be created until you receive the email verifying you
