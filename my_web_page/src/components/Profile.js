@@ -46,6 +46,11 @@ function Profile() {
               <figure className="link-to-sns">
                 <a href="https://www.instagram.com/brynnee.park/">
                   <i className="fab fa-instagram"></i> <strong>Instagram</strong>
+                </a> |
+              </figure>
+              <figure className="link-to-sns">
+                <a href="https://x.com/BrynnPark_eth">
+                  <i className="fab fa-twitter"></i> <strong>X</strong>
                 </a>
               </figure>
             </p>
