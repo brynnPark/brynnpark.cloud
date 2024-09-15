@@ -286,7 +286,7 @@ p {
 .leadership .activity {
   border-left: 4px solid #f77791; /* Simple border on the left */
   padding-left: 10px; /* Padding inside the activity box */
-  margin-bottom: 15px; /* Space between activities */
+  margin-bottom: 25px; /* Space between activities */
 }
 
 /* Styling for the activity period */
