@@ -19,7 +19,7 @@ function Leadership() {
             <div className="skill-block">Leadership</div>
             <div className="skill-block">Team Collaboration</div>
             <div className="skill-block">Decision-Making</div>
-            <div className="skill-block">Blockchain Research</div>
+            <div className="skill-block">Technical Research</div>
           </div>
         </div>
       </div>

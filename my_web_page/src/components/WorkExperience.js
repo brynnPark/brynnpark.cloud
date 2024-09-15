@@ -19,7 +19,6 @@ function WorkExperience() {
           {/* Skill Blocks */}
           <div className="skills">
             <div className="skill-block">Blockchain Analysis</div>
-            <div className="skill-block">Technical Research</div>
             <div className="skill-block">Business Research</div>
           </div>
         </div>
