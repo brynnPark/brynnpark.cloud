@@ -245,7 +245,7 @@ p {
   background-color: #fdf2f4; /* Light background color */
   color: #333; /* Text color */
   padding: 4px 9px; /* Padding inside the block */
-  border: 1px solid #f77791; /* Border around the block */
+  border: 2px solid #f9bac6; /* Border around the block */
   border-radius: 10px; /* Rounded corners */
   font-size: 0.9em; /* Slightly smaller font size */
   font-weight: 500; /* Medium weight for text */
