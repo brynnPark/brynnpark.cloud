@@ -27,7 +27,7 @@ function Profile() {
             <p>I write posts and articles regarding technology.</p>
             <p>🔽 You can check them out below </p>
               <figure className="link-to-blog">
-              <Link to="/tech-blog">👩🏻‍💻 Brynn’s Tech Blog 👩🏻‍💻</Link> {/* Use Link component */}
+                <a href="https://tech.brynnpark.cloud">👩🏻‍💻 Brynn’s Tech Blog 👩🏻‍💻</a> {/* Use Link component */}
               </figure>
           </div>
           <div className="contact">

@@ -2,10 +2,9 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
 import MainPage from './pages/MainPage';
-import TechBlogPage from './pages/TechBlogPage';
-import TechBlogPost from './pages/TechBlogPost';
+// import TechBlogPage from './pages/TechBlogPage';
+// import TechBlogPost from './pages/TechBlogPost';
 import ProjectPage from './pages/ProjectPage';
 import ProjectPost from './pages/ProjectPost';
 import ITeaMoa from './projects/ITeaMoa'; // Ensure this path is correct
@@ -21,8 +20,8 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/tech-blog" element={<TechBlogPage />} />
-          <Route path="/tech-blog/:slug" element={<TechBlogPost />} />
+          {/* <Route path="/tech-blog" element={<TechBlogPage />} />
+          <Route path="/tech-blog/:slug" element={<TechBlogPost />} /> */}
           <Route path="/projects" element={<ProjectPage />} />
           <Route path="/projects/ITeaMoa" element={<ITeaMoa />} />
           <Route path="/projects/ITeaMoa/post1" element={<Post1 />} /> {/* Route for Post1 */}
