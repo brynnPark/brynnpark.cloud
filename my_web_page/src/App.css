@@ -214,6 +214,17 @@ p {
   margin-bottom: 0px;
 }
 
+.work-experience .work-experience-details p:first-of-type {
+  margin-bottom: -5px; /* Shrink the margin between specific lines */
+}
+
+/* Adjust line spacing for activity details */
+.work-experience-details p, 
+.work-experience-details li {
+  line-height: 1.5; /* Adjust line-height for better readability */
+}
+
+
 .link-to-article {
   margin-left: 0; /* Ensure the link aligns to the left */
   margin-top: 5px;
@@ -299,7 +310,13 @@ p {
 
 
 .leadership .activity-details p:first-of-type {
-  margin-bottom: 5px; /* Shrink the margin between specific lines */
+  margin-bottom: -10px; /* Shrink the margin between specific lines */
+}
+
+/* Adjust line spacing for activity details */
+.activity-details p, 
+.activity-details li {
+  line-height: 1.5; /* Adjust line-height for better readability */
 }
 
 .leadership .activity strong {
