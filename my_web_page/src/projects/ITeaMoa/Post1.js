@@ -4,9 +4,9 @@ import React from 'react';
 
 function Post1() {
   return (
-    <div className="project-post">
-      <h1>Introduction to ITeaMoa</h1>
-      <p>This is the detailed content for the first post of the ITeaMoa project...</p>
+    <div>
+      <h2>Post 1: 프로젝트 설계 - 요구사항 분석: SRS, 요구사항 명세서</h2>
+      {/* Add detailed content for Post 1 here */}
     </div>
   );
 }

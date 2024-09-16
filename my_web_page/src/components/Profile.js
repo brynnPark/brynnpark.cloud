@@ -37,17 +37,17 @@ function Profile() {
               <figure className="link-to-sns">
                 <a href="https://www.linkedin.com/in/bohyeon-park-3a79611b6/">
                   <i className="fab fa-linkedin"></i> <strong>LinkedIn</strong>
-                </a> | 
+                </a> 
               </figure>
               <figure className="link-to-sns">
                 <a href="https://github.com/brynnPark">
                   <i className="fab fa-github"></i> <strong>Github</strong>
-                </a> | 
+                </a> 
               </figure>
               <figure className="link-to-sns">
                 <a href="https://www.instagram.com/brynnee.park/">
                   <i className="fab fa-instagram"></i> <strong>Instagram</strong>
-                </a> |
+                </a>
               </figure>
               <figure className="link-to-sns">
                 <a href="https://x.com/BrynnPark_eth">

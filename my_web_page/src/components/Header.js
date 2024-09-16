@@ -1,9 +1,11 @@
-import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 function Header() {
+  const location = useLocation();
+
   return (
-    <div className="header">
-      <h1 className="page-title">Hi! I’m Bohyeon Park 👩🏻‍💻</h1>
+    <div className= "header">
+      <h1>Hi! I’m Bohyeon Park 👩🏻‍💻</h1>
     </div>
   );
 }

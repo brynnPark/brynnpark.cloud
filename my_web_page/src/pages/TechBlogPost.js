@@ -8,7 +8,7 @@ import Post2 from '../tech_posts/Post2';
 
 const posts = [Post1, Post2]; // Combine all imported posts into an array
 
-function BlogPost() {
+function TechBlogPost() {
   const { slug } = useParams(); // Get the slug from the URL
   const post = posts.find((post) => post.slug === slug); // Find the post by slug
 
@@ -26,4 +26,4 @@ function BlogPost() {
   );
 }
 
-export default BlogPost;
+export default TechBlogPost;

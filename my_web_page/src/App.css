@@ -40,6 +40,12 @@ html, body {
   margin: 0 0 20px 15px; /* Remove top margin, only bottom margin remains */
 }
 
+.page-title {
+  font-size: 2em; /* Increase the font size */
+  font-weight: bold; /* Optional: Make the text bold */
+  line-height: 1; /* Adjust line height */
+}
+
 /* Main Content Layout */
 .main-content {
   justify-content: space-between;
@@ -414,4 +420,82 @@ p {
 h2, h3 {
   margin-top: 0;
   margin-bottom: 15px;
+}
+
+/* Blog Page Styles */
+.blog-page {
+  padding: 2em;
+  background-color: #fdf2f4; /* Matching the existing background */
+  color: #333;
+}
+
+.blog-page h1 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 2.2em;
+  color: #4a4a4a;
+  font-weight: bold;
+}
+
+/* Post Card Styling */
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.post-card {
+  background: #ffffff;
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.post-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: #f77791; /* Matching the pink highlight color */
+}
+
+.post-card .post-date {
+  color: #888;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+/* Tag Styling */
+.post-tags {
+  margin: 0.5em 0;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #f9bac6; /* Light pink background */
+  color: #333; /* Darker text */
+  padding: 0.3em 0.8em;
+  margin-right: 0.5em;
+  border-radius: 15px;
+  font-size: 0.85em;
+}
+
+/* Excerpt */
+.post-excerpt {
+  margin-top: 0.5em;
+  color: #555;
+}
+
+/* Link Styling */
+.post-card a {
+  color: #f77791; /* Matching the pink highlight color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.post-card a:hover {
+  color: #d3545d; /* Slightly darker pink on hover */
 }

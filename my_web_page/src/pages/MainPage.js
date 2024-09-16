@@ -1,6 +1,7 @@
 // src/pages/MainPage.js
 
 import React from 'react';
+import Header from '../components/Header';
 import Profile from '../components/Profile';
 import Projects from '../components/Projects';
 import WorkExperience from '../components/WorkExperience';
@@ -12,6 +13,7 @@ import Languages from '../components/Languages';
 function MainPage() {
   return (
     <div>
+      <Header />
       <div className="section main-content">
         <Profile />
       </div>

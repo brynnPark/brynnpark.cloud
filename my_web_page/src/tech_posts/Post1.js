@@ -1,11 +1,12 @@
-// src/posts/Post1.js
+// src/tech_posts/Post1.js
 
 const Post1 = {
-    id: 1,
-    title: 'My First Blog Post',
-    date: '2024-09-01',
-    content: 'This is the content of my first blog post. Welcome to my blog!',
-  };
-  
-  export default Post1;
-  
+  id: 1,
+  slug: 'cloud-native-overview',
+  title: 'Understanding Cloud-Native Architecture',
+  date: 'September 15, 2024',
+  tags: ['Cloud', 'Kubernetes', 'Microservices'],
+  content: 'In this post, we explore the basics of cloud-native architecture, including its core components like containers, microservices, and orchestration...',
+};
+
+export default Post1;
