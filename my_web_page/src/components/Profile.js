@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Profile() {
   return (
@@ -26,7 +27,7 @@ function Profile() {
             <p>I write posts and articles regarding technology.</p>
             <p>🔽 You can check them out below </p>
               <figure className="link-to-blog">
-                <a href="https://www.notion.so/Brynn-s-Tech-Blog-b293f29e3fe44364bc970518e1810870?pvs=21">👩🏻‍💻 Brynn’s Tech Blog 👩🏻‍💻</a>
+              <Link to="/blog">👩🏻‍💻 Brynn’s Tech Blog 👩🏻‍💻</Link> {/* Use Link component */}
               </figure>
           </div>
           <div className="contact">

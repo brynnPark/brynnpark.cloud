@@ -1,37 +1,26 @@
+// src/App.js
+
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Profile from './components/Profile';
-import Projects from './components/Projects';
-import WorkExperience from './components/WorkExperience';
-import Leadership from './components/Leadership';
-import Education from './components/Education';
-import Certificate from './components/Certificates';
-import Languages from './components/Languages';
+import MainPage from './pages/MainPage'; // Import the MainPage component
+import BlogPage from './pages/BlogPage'; // Import the BlogPage component
+import BlogPost from './pages/BlogPost'; // Import the BlogPost component
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <div className="section main-content">
-      <Profile />
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<MainPage />} /> {/* Route for MainPage */}
+          <Route path="/blog" element={<BlogPage />} /> {/* Route for BlogPage */}
+          <Route path="/blog/:slug" element={<BlogPost />} /> {/* Route for individual blog posts */}
+        </Routes>
       </div>
-      <div className="section">
-      <Projects />
-      <WorkExperience />
-      </div>
-      <Leadership />
-      <div className="section">
-      <Education />
-      </div>
-      <div className="section">
-      <Certificate />
-      </div>
-      <div className="section">
-      <Languages />
-      </div>
-    </div>
+    </Router>
   );
 }
 
