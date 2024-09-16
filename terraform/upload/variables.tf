@@ -2,5 +2,5 @@
 variable "static_bucket_name" {
   type        = string
   description = "The name of S3 bucket for static website hosting"
-  default = "brynnpark.cloud"
+  default = "brynnpark-web"
 }
