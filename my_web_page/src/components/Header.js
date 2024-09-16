@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
 function Header() {
-  const location = useLocation();
 
   return (
     <div className= "header">
