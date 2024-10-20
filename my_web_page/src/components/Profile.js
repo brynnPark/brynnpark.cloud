@@ -31,7 +31,7 @@ function Profile() {
           </div>
           <div className="contact">
             <h3>Contact</h3>
-            <p><strong>E-mail : pbh7080@gmail.com</strong></p>
+            <p><i class="fa fa-envelope" aria-hidden="true"></i> <strong>E-mail : pbh7080@gmail.com</strong></p>
             <p>
               <figure className="link-to-sns">
                 <a href="https://www.linkedin.com/in/bohyeon-park-3a79611b6/">

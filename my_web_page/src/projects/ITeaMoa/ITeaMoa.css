@@ -1,23 +1,51 @@
 /* src/projects/ITeaMoa/ITeaMoa.css */
 
-.iteamoa {
+html, body {
   padding: 20px;
-  max-width: 900px; /* Restrict the width for better readability */
-  margin: 0 auto; /* Center the content horizontally */
+  font-family: sans-serif;
+  background: #fdf2f4;
+}
+
+ .custom-body {
+  padding: 20px;
+  margin-left: 60px;
+  width: 600px;
+ }
+
+
+p {
+  margin-bottom: 10px;
+}
+
+li {
+  margin: 10px;
+}
+
+pink-cl {
+  color: #f77791;
+}
+
+.iteamoa {
+  position: sticky;
+  padding: 30px;
+  max-width: 600px; /* Restrict the width for better readability */
+  margin: 0px; /* Center the content horizontally */
 }
 
 /* Project Title */
 .project-title-container {
-  display: flex;
   justify-content: center; /* Center the title horizontally */
-  margin-bottom: 20px; /* Add spacing below the title */
+  margin-bottom: 70px; /* Add spacing below the title */
 }
 
 .project-title {
+  position: sticky;
   font-size: 2.5rem; /* Larger font size */
   font-weight: bold; /* Bold font */
   text-align: center; /* Center the text */
   color: #333; /* Adjust the color to match the theme */
+  width: 800px; /* Full width of the container */
+  max-width: 800px; /* Full width of the container */
 }
 
 /* Go Back Button */
@@ -32,11 +60,11 @@
   font-size: 1.2rem; /* Font size */
   font-weight: bold; /* Bold text */
   transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  margin-top: 30px; /* Space below button */
-  margin-left: 100px;
+  margin-top: 60px; /* Space below button */
+  margin-left: 130px;
   position: absolute; /* Absolute positioning */
-  top: 20px; /* Position from the top */
-  left: 20px; /* Position from the left */
+  top: -110px; /* Position from the top */
+  left: -80px; /* Position from the left */
   cursor: pointer; /* Change cursor to pointer */
 }
 
@@ -52,14 +80,16 @@
 /* Stylish Blockquote */
 blockquote {
   background-color: #f7f7f7; /* Slightly different background color */
-  padding: 20px 30px; /* More padding for a comfortable reading space */
+  padding: 30px 50px; /* More padding for a comfortable reading space */
   border-left: 8px solid #f77791; /* Accent border with the main theme color */
   border-radius: 10px; /* Rounded corners for a modern look */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  margin-bottom: 60px; /* Space below the blockquote */
+  margin-bottom: 40px;
   font-style: italic; /* Italicize text for a quote-like appearance */
   color: #333; /* Slightly darker text for better readability */
   position: relative; /* For adding icon */
+  width: 580px;
+  margin-left: 60px;
 }
 
 /* Add a quotation mark icon */
@@ -97,17 +127,25 @@ blockquote ul ul li {
 }
 
 
+
 /* Link to Post */
-.link-to-post {
-  margin: 10px 0; /* Margin around the links */
-}
 
 .link-to-post a {
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
+  display: inline-block;
+  margin-left: -50px;
+  margin-bottom: -17px;
+  padding: 10px 20px; /* Button-like padding for links */
+  border-radius: 10px; /* Rounded corners for the link itself */
+  text-decoration: none; /* Remove underline */
+  color: #f77791; /* Link color matches pink */
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .link-to-post a:hover {
-  text-decoration: underline;
+  background-color: #fcb6c4; /* Lighter pink background on hover */
+  color: #fff; /* White text on hover */
+  text-decoration: underline; /* Underline on hover */
+  margin-left: -50px; /* Subtle left shift effect on hover */
 }
+
