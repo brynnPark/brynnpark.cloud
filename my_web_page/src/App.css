@@ -7,6 +7,16 @@ html, body {
   background: #fdf2f4;
 }
 
+/* App Wrapper with fixed width and height */
+.App {
+  position: sticky;
+  max-width: 930px;
+  margin: 0 auto;
+  padding: 90px;
+  margin-bottom: 250px;
+}
+
+
 /* Change the background and text color when text is selected */
 ::selection {
   background-color: #fbb2c1; /* Background color when selected */
@@ -17,13 +27,6 @@ html, body {
 .custom-header::selection {
   background-color: #ffcc00; /* Example custom background color */
   color: #000000; /* Example custom text color */
-}
-
-/* Layout Styles */
-.App {
-  max-width: 930px;
-  margin: 0 auto;
-  padding: 120px;
 }
 
 /* Section Separator */
@@ -38,6 +41,7 @@ html, body {
   line-height: 1; /* Adjust line height */
   width: 100%;
   margin: 0 0 20px 15px; /* Remove top margin, only bottom margin remains */
+  margin-left: 90px;
 }
 
 .page-title {
@@ -122,6 +126,11 @@ html, body {
 .gcp {
   background-color: #e0f7fa; /* Light cyan background */
   color: #00796b; /* Dark cyan text */
+}
+
+.devops {
+  background-color: #fed4f2; /* Light cyan background */
+  color: #df30c5; /* Dark cyan text */
 }
 
 /* Technical Research */

@@ -18,6 +18,7 @@ function Profile() {
             <code className="code-block solutions-architect">Solutions Architect</code>
             <code className="code-block aws">AWS</code>
             <code className="code-block gcp">GCP</code>
+            <code className="code-block devops">DevOps</code>
           </p>
         </div>
         <div className="main-content">
