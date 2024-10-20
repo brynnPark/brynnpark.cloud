@@ -122,6 +122,6 @@ jobs:
         working-directory: terraform/upload
         run: terraform apply -auto-approve
     
-      # Verify deletion
-      - name: List bucket contents after deletion
-        run: aws s3 ls s3://brynnpark.cloud --recursive
+      # # Verify deletion
+      # - name: List bucket contents after deletion
+      #   run: aws s3 ls s3://brynnpark.cloud --recursive
