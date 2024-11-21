@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './../project_page.css';
 
-function ITeaMoa() {
+function PersonalPage() {
   const navigate = useNavigate();
 
   return (
@@ -109,4 +109,4 @@ function ITeaMoa() {
   );
 }
 
-export default ITeaMoa;
+export default PersonalPage;

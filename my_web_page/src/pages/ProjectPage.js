@@ -2,10 +2,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Project1 from '../projects/ITeaMoa/Post1';
-import Project2 from '../projects/ITeaMoa/Post2'; // Import more project posts as needed
 
-const projects = [Project1, Project2]; // Combine all imported projects into an array
+
+const projects = []; // Combine all imported projects into an array
 
 function ProjectPage() {
   return (

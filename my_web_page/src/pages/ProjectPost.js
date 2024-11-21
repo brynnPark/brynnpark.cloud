@@ -2,11 +2,10 @@
 
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Project1 from '../projects/ITeaMoa/Post1';
-import Project2 from '../projects/ITeaMoa/Post2';
+
 // Import more project posts as needed
 
-const projectPosts = [Project1, Project2]; // Combine all imported posts into an array
+const projectPosts = []; // Combine all imported posts into an array
 
 function ProjectPost() {
   const { slug } = useParams(); // Get the slug from the URL
