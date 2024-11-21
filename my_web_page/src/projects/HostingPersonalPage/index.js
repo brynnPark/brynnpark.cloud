@@ -46,7 +46,6 @@ function PersonalPage() {
           <h2>프로젝트 진행 과정</h2>
           <p>아래와 같은 과정으로 프로젝트를 진행했으며, 각 과정을 정리했습니다.</p>
           <br/>
-          <h3></h3>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/1-React-145adaa80313806e8d14c682ecb3c221?pvs=4">
               <span className="icon">🗂️</span> 1. React 프로젝트 생성 및 페이지 구축
