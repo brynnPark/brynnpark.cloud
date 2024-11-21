@@ -36,9 +36,9 @@ function PersonalPage() {
           <br/>
           <h3><pink-cl>What I Learned</pink-cl></h3>
           <li><strong>DNS 구성 방법</strong></li>
-          <li><strong>Terraform code를 깔끔하게 구성하는 방법</strong></li>
-          <li><strong>CI / CD 구축</strong></li>
-          <li><strong></strong></li>
+          <li><strong>Terraform 및 GithubActions 사용법</strong></li>
+          <li><strong>CI / CD 작동 방법</strong></li>
+          <li><strong>위 AWS 서비스에 대한 사용 방법</strong></li>
         </blockquote>
 
 
