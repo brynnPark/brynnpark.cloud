@@ -9,7 +9,7 @@ function ITeaMoa() {
   const navigate = useNavigate();
 
   return (
-    <div className="iteamoa">
+    <div className="layout">
       {/* Go Back Button */}
       <button className="go-back-button" onClick={() => navigate('/')}>
         <i className="fas fa-angle-double-left"></i> Back
