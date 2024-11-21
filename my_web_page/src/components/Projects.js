@@ -8,12 +8,12 @@ function Projects() {
     <div className="projects">
       <h1>Projects</h1>
       <figure className="link-to-page">
-        <Link to="/projects/ITeaMoa">
+        <Link to="/projects/iteamoa">
           <span className="icon">💼</span> : ITeaMoa : Cloud Native Project
         </Link>
       </figure>
       <figure className="link-to-page">
-        <Link to="/projects/HostingPersonalPage">
+        <Link to="/projects/hosting-personal-page">
           <span className="icon">🌐</span> Hosting Personal Page in S3
         </Link>
       </figure>

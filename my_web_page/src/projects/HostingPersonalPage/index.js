@@ -1,4 +1,4 @@
-// src/projects/ITeaMoa/index.js
+// src/projects/HostingPersonalPage/index.js
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
