@@ -37,7 +37,7 @@ function ITeaMoa() {
           <li><strong>프로젝트 설계 (요구사항분석, 기능명세서 작성)</strong></li>
           <li><strong>AWS 인프라 설계 및 구축</strong></li>
           <li><strong>CI / CD 구축 및 팀원 권한 관리</strong></li>
-          <li><strong>로그인 기능 구현 (Cognito 이용)</strong></li>
+          <li><strong>Backend API 개발 (Authorization & Authentication) </strong></li>
         </blockquote>
 
       <div className="custom-body">
