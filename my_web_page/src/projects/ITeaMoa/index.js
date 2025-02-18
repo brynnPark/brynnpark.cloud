@@ -40,7 +40,6 @@ function ITeaMoa() {
           <li><strong>로그인 기능 구현 (Cognito 이용)</strong></li>
         </blockquote>
 
-
       <div className="custom-body">
           <h2>프로젝트 진행 과정</h2>
           <p>본격적으로 프로젝트 개발에 들어가기에 앞서 설계를 먼저 도맡아 했습니다.</p>
@@ -53,7 +52,7 @@ function ITeaMoa() {
               <span className="icon">🗂️</span> 프로젝트 마무리 보고서
             </Link>
           </figure>
-
+          <br/>
           <h3>프로젝트 설계</h3>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/e72c0866676f4471b62d83f1927e2bc3?pvs=4">
@@ -112,6 +111,7 @@ function ITeaMoa() {
               <span className="icon">🗂️</span> 11. 프로젝트 개발 - Frontend CI/CD 구축 (Github Actions, Terraform)
             </Link>
           </figure>
+          <br/>
           <h3>참고</h3>
           <p>프로젝트를 진행하며 마주한 문제점과 해결방안을 정리해둔 페이지입니다.</p>
           <figure className="link-to-post">
