@@ -46,6 +46,14 @@ function ITeaMoa() {
           <p>본격적으로 프로젝트 개발에 들어가기에 앞서 설계를 먼저 도맡아 했습니다.</p>
           <p>제 역할에 따른 프로젝트의 설계와 개발 과정을 각각 글로 작성해 정리했습니다.</p>
           <br/>
+          <h3>프로젝트 보고서</h3>
+          <p>프로젝트를 마무리하며 정리하기 위해 작성한 보고서입니다.</p>
+          <figure className="link-to-post">
+            <Link to="https://bird-bread-db0.notion.site/16badaa8031380c3a46be171fbe9b796?pvs=4">
+              <span className="icon">🗂️</span> 프로젝트 마무리 보고서
+            </Link>
+          </figure>
+
           <h3>프로젝트 설계</h3>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/e72c0866676f4471b62d83f1927e2bc3?pvs=4">
@@ -63,7 +71,7 @@ function ITeaMoa() {
             </Link>
           </figure>
           <figure className="link-to-post">
-            <Link to="https://bird-bread-db0.notion.site/cf1ff353fe5741c7ac393c8c886cb027?pvs=4">
+            <Link to="https://bird-bread-db0.notion.site/Infra-System-Architecture-AWS-33c10dbc233448f6ae6ca95a42b506ff?pvs=4">
               <span className="icon">🗂️</span> 4. 프로젝트 설계 - AWS 아키텍처 설계
             </Link>
           </figure>
@@ -86,22 +94,29 @@ function ITeaMoa() {
           <h3>프로젝트 개발</h3>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/Cognito-django-121adaa8031380079f86d7cb5717196b?pvs=4">
-              <span className="icon">🗂️</span> 8. 프로젝트 개발 - 로그인 구현 w/ django, Cognito
+              <span className="icon">🗂️</span> 8. 프로젝트 개발 - 백엔드 API 구현 (Authentication & Authorization)
             </Link>
           </figure>
           <figure className="link-to-post">
-            <Link to="https://bird-bread-db0.notion.site/CI-CD-k8s-11fadaa80313806aa7bad364c319e4fa?pvs=4">
-              <span className="icon">🗂️</span> 9. 프로젝트 개발 - Backend 컨테이너 배포 및 CI/CD 구축 w/ CodePipeline
+            <Link to="https://bird-bread-db0.notion.site/Infra-Deployment-EKS-Fargate-Ingress-ALB-13cadaa8031380a196b7c337f8377604?pvs=4">
+              <span className="icon">🗂️</span> 9. 프로젝트 개발 - eks 구축 
             </Link>
           </figure>
           <figure className="link-to-post">
-            <Link to="https://bird-bread-db0.notion.site/CI-CD-k8s-11fadaa80313806aa7bad364c319e4fa?pvs=4">
-              <span className="icon">🗂️</span> 10. 프로젝트 개발 - eks 구축 (wip)
+            <Link to="https://bird-bread-db0.notion.site/DevOps-CI-CD-Codepipeline-Codebuild-11fadaa80313806aa7bad364c319e4fa?pvs=4">
+              <span className="icon">🗂️</span> 10. 프로젝트 개발 - Backend CI/CD 구축 (Codepipeline, Codebuild)
             </Link>
           </figure>
           <figure className="link-to-post">
-            <Link to="https://bird-bread-db0.notion.site/CI-CD-k8s-11fadaa80313806aa7bad364c319e4fa?pvs=4">
-              <span className="icon">🗂️</span> 11. 프로젝트 개발 - Frontend CI/CD 구축 w/ Github Actions, Terraform (wip)
+            <Link to="https://bird-bread-db0.notion.site/Frontend-CI-CD-19eadaa803138084a310d9632bdc7fca?pvs=4">
+              <span className="icon">🗂️</span> 11. 프로젝트 개발 - Frontend CI/CD 구축 (Github Actions, Terraform)
+            </Link>
+          </figure>
+          <h3>참고</h3>
+          <p>프로젝트를 진행하며 마주한 문제점과 해결방안을 정리해둔 페이지입니다.</p>
+          <figure className="link-to-post">
+            <Link to="https://bird-bread-db0.notion.site/Bugfix-Error-Logs-168adaa8031380499c0efdc00b5097ed?pvs=4">
+              <span className="icon">🗂️</span> Bugfix Note
             </Link>
           </figure>
         </div>
