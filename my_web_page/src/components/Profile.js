@@ -18,6 +18,7 @@ function Profile() {
             <code className="code-block solutions-architect">Solutions Architect</code>
             <code className="code-block aws">AWS</code>
             <code className="code-block gcp">GCP</code>
+            <code className="code-block devops">DevOps</code>
           </p>
         </div>
         <div className="main-content">
@@ -26,26 +27,31 @@ function Profile() {
             <p>I write posts and articles regarding technology.</p>
             <p>🔽 You can check them out below </p>
               <figure className="link-to-blog">
-                <a href="https://www.notion.so/Brynn-s-Tech-Blog-b293f29e3fe44364bc970518e1810870?pvs=21">👩🏻‍💻 Brynn’s Tech Blog 👩🏻‍💻</a>
+                <a href="https://tech.brynnpark.cloud">👩🏻‍💻 Brynn’s Tech Blog 👩🏻‍💻</a> {/* Use Link component */}
               </figure>
           </div>
           <div className="contact">
             <h3>Contact</h3>
-            <p><strong>E-mail : pbh7080@gmail.com</strong></p>
+            <p><i class="fa fa-envelope" aria-hidden="true"></i> <strong>E-mail : pbh7080@gmail.com</strong></p>
             <p>
               <figure className="link-to-sns">
                 <a href="https://www.linkedin.com/in/bohyeon-park-3a79611b6/">
                   <i className="fab fa-linkedin"></i> <strong>LinkedIn</strong>
-                </a> | 
+                </a> 
               </figure>
               <figure className="link-to-sns">
                 <a href="https://github.com/brynnPark">
                   <i className="fab fa-github"></i> <strong>Github</strong>
-                </a> | 
+                </a> 
               </figure>
               <figure className="link-to-sns">
                 <a href="https://www.instagram.com/brynnee.park/">
                   <i className="fab fa-instagram"></i> <strong>Instagram</strong>
+                </a>
+              </figure>
+              <figure className="link-to-sns">
+                <a href="https://x.com/BrynnPark_eth">
+                  <i className="fab fa-twitter"></i> <strong>X</strong>
                 </a>
               </figure>
             </p>

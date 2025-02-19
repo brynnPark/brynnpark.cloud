@@ -1,0 +1,151 @@
+/* src/projects/ITeaMoa/ITeaMoa.css */
+
+html, body {
+  padding: 20px;
+  font-family: sans-serif;
+  background: #fdf2f4;
+}
+
+ .custom-body {
+  padding: 20px;
+  margin-left: 60px;
+  width: 600px;
+ }
+
+
+p {
+  margin-bottom: 10px;
+}
+
+li {
+  margin: 10px;
+}
+
+pink-cl {
+  color: #f77791;
+}
+
+.layout {
+  position: sticky;
+  padding: 30px;
+  max-width: 600px; /* Restrict the width for better readability */
+  margin: 0px; /* Center the content horizontally */
+}
+
+/* Project Title */
+.project-title-container {
+  justify-content: center; /* Center the title horizontally */
+  margin-bottom: 70px; /* Add spacing below the title */
+}
+
+.project-title {
+  position: sticky;
+  font-size: 2.5rem; /* Larger font size */
+  font-weight: bold; /* Bold font */
+  text-align: center; /* Center the text */
+  color: #333; /* Adjust the color to match the theme */
+  width: 800px; /* Full width of the container */
+  max-width: 800px; /* Full width of the container */
+}
+
+/* Go Back Button */
+.go-back-button {
+  display: inline-flex; /* Use flexbox to align icon and text */
+  align-items: center; /* Align icon and text vertically */
+  background-color: #fdf2f4; /* Background color */
+  color: #f77791; /* Text color */
+  border: none; /* Remove default border */
+  border-radius: 20px; /* Rounded corners */
+  padding: 8px 15px; /* Padding for size */
+  font-size: 1.2rem; /* Font size */
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  margin-top: 60px; /* Space below button */
+  margin-left: 130px;
+  position: absolute; /* Absolute positioning */
+  top: -110px; /* Position from the top */
+  left: -80px; /* Position from the left */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.go-back-button i {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.go-back-button:hover {
+  background-color: #f77791; /* Change color on hover */
+  color: #ffffff;
+}
+
+/* Stylish Blockquote */
+blockquote {
+  background-color: #f7f7f7; /* Slightly different background color */
+  padding: 30px 50px; /* More padding for a comfortable reading space */
+  border-left: 8px solid #f77791; /* Accent border with the main theme color */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 40px;
+  font-style: italic; /* Italicize text for a quote-like appearance */
+  color: #333; /* Slightly darker text for better readability */
+  position: relative; /* For adding icon */
+  width: 580px;
+  margin-left: 60px;
+}
+
+/* Add a quotation mark icon */
+blockquote::before {
+  content: '“'; /* Unicode character for the opening quotation mark */
+  font-size: 3.5rem; /* Size of the quotation mark */
+  color: #f77791; /* Match the accent color */
+  position: absolute; /* Position it absolutely within the blockquote */
+  top: -20px; /* Adjust vertical position */
+  left: 15px; /* Adjust horizontal position */
+  opacity: 0.5; /* Make it semi-transparent */
+}
+
+/* Inner content styling for blockquote */
+blockquote strong {
+  font-weight: bold; /* Ensure bold text remains bold inside the blockquote */
+}
+
+blockquote ul {
+  margin: 0; /* Remove margin for the unordered list */
+  padding-left: 20px; /* Indent the list inside the blockquote */
+}
+
+blockquote ul li {
+  list-style-type: disc; /* Use disc bullets */
+  margin-bottom: 8px; /* Space between list items */
+}
+
+blockquote ul ul {
+  padding-left: 20px; /* Additional indentation for nested lists */
+}
+
+blockquote ul ul li {
+  list-style-type: circle; /* Use circle bullets for nested lists */
+}
+
+
+
+/* Link to Post */
+
+.link-to-post a {
+  display: inline-block;
+  margin-left: -50px;
+  margin-bottom: -17px;
+  padding: 10px 20px; /* Button-like padding for links */
+  border-radius: 10px; /* Rounded corners for the link itself */
+  text-decoration: none; /* Remove underline */
+  color: #f77791; /* Link color matches pink */
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link-to-post a:hover {
+  background-color: #fcb6c4; /* Lighter pink background on hover */
+  color: #fff; /* White text on hover */
+  text-decoration: underline; /* Underline on hover */
+  margin-left: -50px; /* Subtle left shift effect on hover */
+}
+

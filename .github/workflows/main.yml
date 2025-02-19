@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
+      
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -104,6 +104,6 @@ jobs:
         working-directory: terraform/upload
         run: terraform apply -auto-approve
     
-      # Verify deletion
-      - name: List bucket contents after deletion
-        run: aws s3 ls s3://brynnpark.cloud --recursive
+      # # Verify deletion
+      # - name: List bucket contents after deletion
+      #   run: aws s3 ls s3://brynnpark.cloud --recursive
