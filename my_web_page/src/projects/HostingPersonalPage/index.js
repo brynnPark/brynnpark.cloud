@@ -53,7 +53,7 @@ function PersonalPage() {
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/Terraform-GithubActions-145adaa80313808bbf2cf39d25f549b1?pvs=4">
-              <span className="icon">🗂️</span> [WIP] 2. 자동화 구축 (Terraform, GithubActions)
+              <span className="icon">🗂️</span> 2. 자동화 구축 (Terraform, GithubActions)
             </Link>
           </figure>
           <figure className="link-to-post">

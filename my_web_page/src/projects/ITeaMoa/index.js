@@ -56,59 +56,59 @@ function ITeaMoa() {
           <h3>프로젝트 설계</h3>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/e72c0866676f4471b62d83f1927e2bc3?pvs=4">
-              <span className="icon">🗂️</span> 1. 프로젝트 설계 - 요구사항 분석: SRS, 요구사항 명세서
+              <span className="icon">🗂️</span> 1. 요구사항 분석: SRS, 요구사항 명세서
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/0b6fddd3de55416a9ad95f20715cc5e2?pvs=4">
-              <span className="icon">🗂️</span> 2. 프로젝트 설계 - 기능명세서 작성
+              <span className="icon">🗂️</span> 2. 기능명세서 작성
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/fbd17be452844eb38103a8168346a5eb?pvs=4">
-              <span className="icon">🗂️</span> 3. 프로젝트 설계 - Information Architecture, User Flow 작성
+              <span className="icon">🗂️</span> 3. Information Architecture, User Flow 작성
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/Infra-System-Architecture-AWS-33c10dbc233448f6ae6ca95a42b506ff?pvs=4">
-              <span className="icon">🗂️</span> 4. 프로젝트 설계 - AWS 아키텍처 설계
+              <span className="icon">🗂️</span> 4. AWS 아키텍처 설계
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/ERD-39aee6884a51447a9245ad83799fb61b?pvs=4">
-              <span className="icon">🗂️</span> 5. 프로젝트 설계 - DynamoDB 설계, 테이블 기술서
+              <span className="icon">🗂️</span> 5. DynamoDB 설계, 테이블 기술서
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/Cost-Expectation-e73650eabcd04cc0a4dc0e7671634d08?pvs=4">
-              <span className="icon">🗂️</span> 6. 프로젝트 설계 - 비용 분석
+              <span className="icon">🗂️</span> 6. 비용 분석
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/125adaa8031380288412f059bf7d6f14?pvs=4">
-              <span className="icon">🗂️</span> 7. 프로젝트 설계 - 인프라 구축을 위한 준비 및 공부
+              <span className="icon">🗂️</span> 7. 인프라 구축을 위한 준비 및 공부
             </Link>
           </figure>
           <br/>
           <h3>프로젝트 개발</h3>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/Cognito-django-121adaa8031380079f86d7cb5717196b?pvs=4">
-              <span className="icon">🗂️</span> 8. 프로젝트 개발 - 백엔드 API 구현 (Authentication & Authorization)
+              <span className="icon">🗂️</span> 8. [Backend] 백엔드 API 구현 (Authentication & Authorization)
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/Infra-Deployment-EKS-Fargate-Ingress-ALB-13cadaa8031380a196b7c337f8377604?pvs=4">
-              <span className="icon">🗂️</span> 9. 프로젝트 개발 - eks 구축 
+              <span className="icon">🗂️</span> 9. [Infra] - eks 구축 
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/DevOps-CI-CD-Codepipeline-Codebuild-11fadaa80313806aa7bad364c319e4fa?pvs=4">
-              <span className="icon">🗂️</span> 10. 프로젝트 개발 - Backend CI/CD 구축 (Codepipeline, Codebuild)
+              <span className="icon">🗂️</span> 10. [DevOps] - Backend CI/CD 구축 (Codepipeline, Codebuild)
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/Frontend-CI-CD-19eadaa803138084a310d9632bdc7fca?pvs=4">
-              <span className="icon">🗂️</span> 11. 프로젝트 개발 - Frontend CI/CD 구축 (Github Actions, Terraform)
+              <span className="icon">🗂️</span> 11. [DevOps] - Frontend CI/CD 구축 (Github Actions, Terraform)
             </Link>
           </figure>
           <br/>
