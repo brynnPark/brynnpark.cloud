@@ -12,7 +12,7 @@ function Profile() {
       <div className="content">
         <div className="details">
           <h1>Bohyeon Park | 박보현</h1>
-          <p><strong>I’m interested in Solutions Architecting and Cloud Engineering : ) </strong></p>
+          <p><strong> Cloud Computing, DevOps & SRE Enthusiast ! </strong></p>
           <p>
             <code className="code-block cloud-engineering">Cloud Engineering</code>
             <code className="code-block solutions-architect">Solutions Architect</code>
@@ -24,13 +24,20 @@ function Profile() {
         <div className="main-content">
           <div className="technical-research">
             <h3>Technical Research</h3>
-            <p>I write posts and articles regarding technology.</p>
-            <p>🔽 You can check them out below </p>
-              <figure className="link-to-blog">
-                <a href="https://tech.brynnpark.cloud">👩🏻‍💻 Brynn’s Tech Blog 👩🏻‍💻</a> {/* Use Link component */}
+
+            <p>
+              <figure className="link-to-sns">
+                <a href="https://tech.brynnpark.cloud"> Brynn’s Tech Blog </a>
               </figure>
-          </div>
-          <div className="contact">
+              <figure className="link-to-sns">
+                <a href="https://brynn-park.tistory.com/"> Tistory </a>
+              </figure>
+            </p>
+            <li><strong> Tech Blog for Cloud & Computer Science</strong></li>
+            <li><strong>Tistory for Blockchain & Algorithms </strong></li>
+            <br></br>
+            <br></br>
+
             <h3>Contact</h3>
             <p><i class="fa fa-envelope" aria-hidden="true"></i> <strong>E-mail : pbh7080@gmail.com</strong></p>
             <p>
