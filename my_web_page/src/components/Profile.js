@@ -33,8 +33,8 @@ function Profile() {
                 <a href="https://brynn-park.tistory.com/"> Tistory </a>
               </figure>
             </p>
-            <li><strong> Tech Blog for Cloud & Computer Science</strong></li>
-            <li><strong>Tistory for Blockchain & Algorithms </strong></li>
+            <li><strong> Tech Blog  ⎯  Cloud & Computer Science</strong></li>
+            <li><strong>Tistory  ⎯  Blockchain & Algorithms </strong></li>
             <br></br>
             <br></br>
 

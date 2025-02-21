@@ -7,6 +7,27 @@ function Leadership() {
 
       <div className="activity">
         <h3>
+          <strong>CloudClub | Member</strong> 
+          <span className="activity-period">(2025.03 ⎯ Present)</span>
+        </h3>
+        <div className="activity-details">
+          <p><span className="sub-highlight-text">Vendor-neutral club of cloud infrastructure</span></p>
+          <p>Studied and conducted projects based on deep understanding of on-premise and cloud infrastructure. </p>
+          
+          {/* Skill Blocks */}
+          <div className="skills">
+            <div className="skill-block">Cloud Computing</div>
+            <div className="skill-block">Infra Skills</div>
+            <div className="skill-block">Kubernetes</div>
+            <div className="skill-block">DevOps</div>
+            <div className="skill-block">GitOps</div>
+            <div className="skill-block">Networking</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="activity">
+        <h3>
           <strong>Decipher | Operation Lead & Senior Researcher</strong> 
           <span className="activity-period">(2023.09 ⎯ 2024.12)</span>
         </h3>
