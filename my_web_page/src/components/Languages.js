@@ -5,13 +5,13 @@ function Languages() {
     <div className="languages">
       <h1>Language</h1>
       <div className="languageitem">
-        <h3><strong>English | Proficient</strong></h3>
-        <ul>
-            <li><strong>TOEIC ( 950 / 990 ), OPIc (IH)</strong></li>
-        </ul>
+        <h2><strong> [ English ]  Proficient</strong></h2>
+        <h3>TOEIC ( 950 / 990 )</h3> 
+        <h3>OPIc (IH)</h3>
       </div>
+      <br></br> 
       <div className="languageitem">
-        <h3><strong>Korean | Native</strong></h3>
+        <h2><strong>[ Korean ] Native</strong></h2>
       </div>
     </div>
   );
