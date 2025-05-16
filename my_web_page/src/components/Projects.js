@@ -18,13 +18,8 @@ function Projects() {
         </Link>
       </figure>
       <figure className="link-to-page">
-        <Link to="/projects/CarrotDB">
-          <span className="icon">🥕</span> Carrot : DB Project
-        </Link>
-      </figure>
-      <figure className="link-to-page">
-        <Link to="/projects/Linkrypto">
-          <span className="icon">⛓️</span> Linkrypto : Blockchain Project
+        <Link to="/projects/carrotdb">
+          <span className="icon">🥕</span> 당근마켓 Carrot: DB Project
         </Link>
       </figure>
     </div>
