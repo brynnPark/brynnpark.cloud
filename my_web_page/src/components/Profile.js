@@ -28,6 +28,7 @@ function Profile() {
             <p>
               <figure className="link-to-sns">
                 <a href="https://tech.brynnpark.xyz"> Brynn’s Tech Blog </a>
+
               </figure>
               <figure className="link-to-sns">
                 <a href="https://brynn-park.tistory.com/"> Tistory </a>
