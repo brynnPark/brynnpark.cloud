@@ -98,17 +98,17 @@ function ITeaMoa() {
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/Infra-Deployment-EKS-Fargate-Ingress-ALB-13cadaa8031380a196b7c337f8377604?pvs=4">
-              <span className="icon">🗂️</span> 9. [Infra] - eks 구축 
+              <span className="icon">🗂️</span> 9. [Infra] eks 구축 
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/DevOps-CI-CD-Codepipeline-Codebuild-11fadaa80313806aa7bad364c319e4fa?pvs=4">
-              <span className="icon">🗂️</span> 10. [DevOps] - Backend CI/CD 구축 (Codepipeline, Codebuild)
+              <span className="icon">🗂️</span> 10. [DevOps] Backend CI/CD 구축 (Codepipeline, Codebuild)
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/Frontend-CI-CD-19eadaa803138084a310d9632bdc7fca?pvs=4">
-              <span className="icon">🗂️</span> 11. [DevOps] - Frontend CI/CD 구축 (Github Actions, Terraform)
+              <span className="icon">🗂️</span> 11. [DevOps] Frontend CI/CD 구축 (Github Actions, Terraform)
             </Link>
           </figure>
           <br/>

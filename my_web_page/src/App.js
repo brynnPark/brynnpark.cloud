@@ -9,6 +9,7 @@ import MainPage from './pages/MainPage';
 // import ProjectPost from './pages/ProjectPost';
 import ITeaMoa from './projects/ITeaMoa/index.js';
 import PersonalPage from './projects/HostingPersonalPage/index.js';
+import CarrotDB from './projects/CarrotDB/index.js';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function App() {
           {/* <Route path="/projects" element={<ProjectPage />} /> */}
           <Route path="/projects/iteamoa" element={<ITeaMoa />} />
           <Route path="/projects/hosting-personal-page" element={<PersonalPage />} />
+          <Route path="/projects/carrotdb" element={<CarrotDB />} />
           {/* Add routes for more posts if necessary */}
           {/* <Route path="/projects/:slug" element={<ProjectPost />} /> */}
         </Routes>

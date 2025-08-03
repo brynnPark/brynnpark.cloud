@@ -32,6 +32,7 @@ function PersonalPage() {
           <li>AWS Certificate Manager</li>
           <li>CI / CD 구축 (Github Actions) </li>
           <li>IaC 사용 (Terraform) </li>
+          <li>React framework </li>
           </strong>
           <br/>
           <h3><pink-cl>What I Learned</pink-cl></h3>
@@ -48,12 +49,12 @@ function PersonalPage() {
           <br/>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/1-React-145adaa80313806e8d14c682ecb3c221?pvs=4">
-              <span className="icon">🗂️</span> 1. React 프로젝트 생성 및 페이지 구축
+              <span className="icon">🗂️</span> 1. 프론트엔드 프로젝트 생성 및 페이지 구축 (React)
             </Link>
           </figure>
           <figure className="link-to-post">
             <Link to="https://bird-bread-db0.notion.site/Terraform-GithubActions-145adaa80313808bbf2cf39d25f549b1?pvs=4">
-              <span className="icon">🗂️</span> 2. 자동화 구축 (Terraform, GithubActions)
+              <span className="icon">🗂️</span> 2. CI/CD 자동화 구축 (Terraform, GithubActions)
             </Link>
           </figure>
           <figure className="link-to-post">
